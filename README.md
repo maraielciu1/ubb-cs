@@ -1,9 +1,37 @@
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/5UmIfMlG)
+# 💻 Assignment 02 - Sorting
 
-# :computer: Simple problems solved using python
+## Requirements
+Implement a menu-driven console application to help visualize the way sorting algorithms work. You will be given two of the algorithms from the list below to implement (one from each set). When started, the program will print a menu with the following options:
+- Generate a list of `n` random natural numbers. Generated numbers must be between `0` and `100`.
+- Sort the list using the first algorithm. (see **NB!** below)
+- Sort the list using the second algorithm. (see **NB!** below)
+- Exit the program
 
-## Problem Statements
-p1.py  For a given natural number `n` find the largest natural number written with the same digits. (e.g. `n=3658, m=8653`).
-###
-p2.py The numbers `n1` and `n2` have the property `P` if their writing in base 10 uses the same digits (e.g. `2113 and 323121`). Determine whether two given natural numbers have property `P`.
-###
-p3.py Generate the largest perfect number smaller than a given natural number `n`. If such a number does not exist, a message should be displayed. A number is perfect if it is equal to the sum of its divisors, except itself. (e.g.  `6 is a perfect number, as 6=1+2+3`).
+## NB!
+- Before starting each sort, the program will ask for the value of parameter `step`. During sorting, the program will display the partially sorted list on the console each time it makes `step` operations or passes, depending on the algorithm (e.g., if `step=2`, display the partially sorted list after each 2 element swaps in bubble sort, after each 2 element insertions in insert sort, after every 2nd generation of a permutation in permutation sort etc.).
+- [List of sorting algorithms](https://en.wikipedia.org/wiki/Sorting_algorithm)
+
+## Implementation requirements
+- Write a function for each sorting algorithm; each function should take as parameter the list to be sorted and the value of parameter `step` that was read from the console.
+- Functions communicate using input parameter(s) and return values (**DO NOT use global, or module-level variables**)
+- Provide the user with a menu-driven console-based user interface. Input data should be read from the console and the results printed to the console. At each step, the program must provide the user the context of the operation (never display an empty prompt).
+- You may use Internet resources to research the sorting algorithm, but you must be able to explain **how** and **why** they work in detail
+
+## Sorting algorithms 
+### Basic set
+- Bogosort
+- Bubble Sort
+- Cocktail Sort
+- Exchange Sort
+- Insert Sort
+- Permutation Sort
+- Selection Sort
+
+### Advanced set
+- Comb Sort
+- Gnome Sort
+- Heap Sort
+- Shell Sort
+- Strand Sort
+- Stooge Sort
