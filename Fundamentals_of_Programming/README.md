@@ -12,7 +12,13 @@ This repository contains assignments and projects related to Functional Programm
 
 - `assignment_1/`: Introduction to Python
 - `assignment_2/`: Sorting
-- `assignment_3/`: 
-- ... and so on for each assignment
+- `assignment_3/`: List vs Dict
+- `assignment_4/`: Computing Complexities
+- `assignment_5/`: Problem solving methods
+- `assignment_6/`: Apartment building administrator
+- `assignment_7/`: Expenses management
+- `assignment_8/`: Students register management
+- `assignment_9/`: Assignment8+infinite undo/redo functions
+- `assignment_10/`: Nine men's morris human vs computer game with advanced computer player
 
 
