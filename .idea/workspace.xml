@@ -1,11 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="94c83099-e53d-4050-8a7d-dd2f9adad20b" name="Changes" comment="" />
+    <list default="true" id="94c83099-e53d-4050-8a7d-dd2f9adad20b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_7/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_7/src/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_7/src/domain/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_7/src/domain/expense.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_7/src/repository/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_7/src/repository/binary_repo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_7/src/repository/memory_repo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_7/src/repository/text_file_repo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_7/src/services/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_7/src/services/functions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_7/src/tests/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_7/src/tests/testing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_7/src/ui/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_7/src/ui/expenses.data" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_7/src/ui/expenses.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_7/src/ui/setting.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_7/src/ui/start.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_7/src/ui/ui_code.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_8/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_8/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_8/src/domain/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_8/src/domain/discipline.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_8/src/domain/grade.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_8/src/domain/id_object.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_8/src/domain/student.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_8/src/repository/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_8/src/repository/binaryfile_repo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_8/src/repository/memory_repo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_8/src/repository/textfile_repo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_8/src/services/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_8/src/services/discipline_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_8/src/services/grade_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_8/src/services/main_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_8/src/services/student_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_8/src/start.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_8/src/tests/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_8/src/tests/test_discipline.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_8/src/tests/test_student.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_8/src/ui/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_8/src/ui/ui_code.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/actions/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/actions/add/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/actions/add/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/actions/add/discipline.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/actions/add/grade.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/actions/add/student.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/actions/base_action.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/actions/remove/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/actions/remove/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/actions/remove/discipline.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/actions/remove/grade.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/actions/remove/student.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/actions/update/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/actions/update/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/actions/update/discipline.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/actions/update/student.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/domain/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/domain/discipline.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/domain/grade.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/domain/id_object.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/domain/student.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/files_data/disciplines.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/files_data/disciplines.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/files_data/grades.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/files_data/grades.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/files_data/students.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/files_data/students.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/repository/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/repository/binaryfile_repo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/repository/configuration.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/repository/memory_repo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/repository/repository.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/repository/textfile_repo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/services/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/services/configuration.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/services/discipline_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/services/grade_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/services/main_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/services/student_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/start.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/ui/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/ui/configuration.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/ui/setting.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9/src/ui/ui_code.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a7-maraielciu1" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -13,9 +110,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2d8WIbcfwq3RDVwgPzNaGUoikGX" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -25,11 +122,26 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "side__projects",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/maraielciu/Projects/ubb-cs/Fundamentals_of_Programming/assignment_8",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_9" />
+      <recent name="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_8" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Fundamentals_of_Programming" />
+      <recent name="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_7" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -46,6 +158,7 @@
       <option name="presentableId" value="Default" />
       <updated>1709390106499</updated>
       <workItem from="1709390107591" duration="17000" />
+      <workItem from="1709390213308" duration="306000" />
     </task>
     <servers />
   </component>

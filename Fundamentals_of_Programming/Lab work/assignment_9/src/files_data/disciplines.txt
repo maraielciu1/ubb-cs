@@ -1,0 +1,10 @@
+500,Geography
+501,History
+502,Biology
+503,Physics
+504,German
+505,Informatics
+506,Chemistry
+507,English
+508,French
+509,Math

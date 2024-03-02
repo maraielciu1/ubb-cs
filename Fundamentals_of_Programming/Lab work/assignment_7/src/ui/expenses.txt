@@ -1,0 +1,14 @@
+23;365;water
+26;369;water
+16;436;water
+9;392;other
+25;161;other
+9;125;gas
+9;258;gas
+25;487;heating
+22;217;heating
+8;122;other
+27;104;other
+9;164;gas
+4;213;gas
+22;112;electricity
