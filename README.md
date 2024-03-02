@@ -24,13 +24,8 @@ Implement a menu-driven console application that provides the following function
 Length and elements of a longest subarray of numbers that contain at most 3 distinct values.
 
 ## Set B (dynamic programming implementation required)
-9. The length and elements of a longest increasing subsequence, when considering each number's modulus
-10. The length and elements of a longest increasing subsequence, when considering each number's real part
-11. The length and elements of a maximum subarray sum, when considering each number's real part
-12. The length and elements of a longest alternating subsequence, when considering each number's real part (e.g., given sequence [1, 3, 2, 4, 10, 6, 1], [1, 3, 2, 10] is an alternating subsequence, because 1 < 3 > 2 < 10)
-13. The length of a longest alternating subsequence, when considering each number's modulus (e.g., given sequence [1, 3, 2, 4, 10, 6, 1], [1, 3, 2, 10] is an alternating subsequence, because 1 < 3 > 2 < 10)
+The length and elements of a longest increasing subsequence, when considering each number's modulus
 
 ## Observations
 - Elements of a **subarray** are in consecutive order of their appearance in the array, while in a **subsequence**, this isn't necessarily true.
 - The longest subarray/subsequence might not be unique, so determining a single one is sufficient.
-- Understand and be able to explain the time and extra-space computational complexity of your implementation. 
