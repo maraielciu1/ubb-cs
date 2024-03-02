@@ -12,8 +12,8 @@ This repository contains assignments and projects related to Fundamentals of Pro
 
 - `assignment_1/`: Introduction to Python
 - `assignment_2/`: Sorting
-- `assignment_3/`: List vs Dict
-- `assignment_4/`: Computing Complexities
+- `assignment_3/`: Computing Complexities
+- `assignment_4/`: List vs Dict
 - `assignment_5/`: Problem solving methods
 - `assignment_6/`: Apartment building administrator
 - `assignment_7/`: Expenses management
