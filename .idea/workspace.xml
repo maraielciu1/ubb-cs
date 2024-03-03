@@ -4,46 +4,68 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94c83099-e53d-4050-8a7d-dd2f9adad20b" name="Changes" comment="Updated lab work">
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/game of life/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/game of life/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/game of life/src/board.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/game of life/src/board.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/game of life/src/game.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/game of life/src/pattern.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/game of life/src/start.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/game of life/src/test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/game of life/src/ui.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/hammurabi/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/hammurabi/city.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/hammurabi/controller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/hammurabi/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/hammurabi/ui.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/hangman/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/hangman/controller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/hangman/image.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/hangman/repo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/hangman/sentences.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/hangman/ui.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/order_and_chaos/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/order_and_chaos/board.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/order_and_chaos/game.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/order_and_chaos/image.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/order_and_chaos/text.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/order_and_chaos/ui.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/reservations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/reservations/domain.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/reservations/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/reservations/repo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/reservations/res.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/reservations/room.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/scramble/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/scramble/controller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/scramble/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/scramble/repo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/scramble/sentences.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/scramble/ui.py" afterDir="false" />
+    <list default="true" id="94c83099-e53d-4050-8a7d-dd2f9adad20b" name="Changes" comment="Algebra+Analysis">
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab11/factorial/factorial.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab11/factorial/main_factorial.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab11/find_max/find_max.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab11/find_max/main_max.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab11/pb24L11.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab11/pb8L11.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab11/pb9L11.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab12/23 ian.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab12/find_min_max/findmax.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab2/pb1.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab2/pb10.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab2/pb2.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab2/pb3.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab2/pb4.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab2/pb5.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab2/pb6.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab2/pb7.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab2/pb8.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab2/pb9.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab3/pb1.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab3/pb10.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab3/pb2.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab3/pb3.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab3/pb4.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab3/pb5.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab3/pb6.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab3/pb7.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab3/pb8.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab3/pb9.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab3/test1.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab4/ex1L4.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab4/pb1.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab4/pb2.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab4/pb3.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab4/pb4.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab4/pb5L4.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab5/ex24_lab5.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab5/pb1.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab5/pb2.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab5/pb3_example.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab5/pb4.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab5/pb5.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab6/ex1L6.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab6/ex24L6.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab6/ex9L6.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab6/exemplu.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab6/trick_q.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab8/pb24-textfile/input.txt.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab8/pb24-textfile/output.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab8/pb24-textfile/pb24L8_02.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab8/pb24-textfile/pb24L8_02.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab8/pb24-textfile/pb24L8_02.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab8/pb24-textfile/pb24L8_text.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab8/pb24-textfile/pb24L8_text.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab8/pb24-textfile/pb24L8_text.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab8/pb24L8_console.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab8/pb9L8_console.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab8/pb9L8_file.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab8/shl_shr.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab8/xlat_ex.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_1/Fundamentals_of_Programming/27 ian.asm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,36 +90,41 @@
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2d8WIbcfwq3RDVwgPzNaGUoikGX" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/maraielciu/Projects/ubb-cs/Fundamentals_of_Programming/Exam/order_and_chaos",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/maraielciu/Projects/ubb-cs/Sem_1/Algebra&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Sem_1/Algebra" />
+      <recent name="$PROJECT_DIR$/Sem_1/Analysis" />
+      <recent name="$PROJECT_DIR$/Sem_1/Analysis/assignment_4" />
+      <recent name="$PROJECT_DIR$/Fundamentals_of_Programming" />
       <recent name="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/order_and_chaos" />
-      <recent name="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/hangman" />
-      <recent name="$PROJECT_DIR$/Fundamentals_of_Programming/Exam" />
-      <recent name="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/Game of life" />
-      <recent name="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_10" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Fundamentals_of_Programming/Lab work" />
-      <recent name="$PROJECT_DIR$/Fundamentals_of_Programming" />
-      <recent name="$PROJECT_DIR$/Fundamentals_of_Programming/assignment_7" />
+      <recent name="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab12" />
+      <recent name="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab12/find_min_max" />
+      <recent name="$PROJECT_DIR$/Sem_1/Fundamentals_of_Programming" />
+      <recent name="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab11" />
+      <recent name="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab11/find_max" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -117,7 +144,8 @@
       <updated>1709390106499</updated>
       <workItem from="1709390107591" duration="17000" />
       <workItem from="1709390213308" duration="933000" />
-      <workItem from="1709452890637" duration="491000" />
+      <workItem from="1709452890637" duration="2920000" />
+      <workItem from="1709472918215" duration="607000" />
     </task>
     <task id="LOCAL-00001" summary="Updated lab work">
       <option name="closed" value="true" />
@@ -127,7 +155,31 @@
       <option name="project" value="LOCAL" />
       <updated>1709390729687</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Exam subjects">
+      <option name="closed" value="true" />
+      <created>1709453390336</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1709453390336</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Seminars updated">
+      <option name="closed" value="true" />
+      <created>1709453532511</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1709453532511</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Algebra+Analysis">
+      <option name="closed" value="true" />
+      <created>1709455249159</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1709455249159</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -135,6 +187,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Updated lab work" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated lab work" />
+    <MESSAGE value="Exam subjects" />
+    <MESSAGE value="Seminars updated" />
+    <MESSAGE value="Algebra+Analysis" />
+    <option name="LAST_COMMIT_MESSAGE" value="Algebra+Analysis" />
   </component>
 </project>

@@ -1,0 +1,70 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit , fopen, fclose, fprintf              ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+     9                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    10                                  import fopen msvcrt.dll
+    11                                  import fclose msvcrt.dll
+    12                                  import fprintf msvcrt.dll
+    13                                  ;A file name and a text (defined in data segment) are given. The text contains lowercase letters, uppercase letters, digits and special characters. Replace all digits from the text with character 'C'. Create a file 
+    14                                  ; our data is declared here (the variables needed by our program)
+    15                                  segment data use32 class=data
+    16 00000000 6F75747075742E7478-         file_name db "output.txt",0
+    16 00000009 7400               
+    17 0000000B 616263643132346463-         text db "abcd124dchbsu7",0
+    17 00000014 686273753700       
+    18                                      len_text equ $-text-1
+    19 0000001A 7700                        mod_acces db "w",0
+    20 0000001C FFFFFFFF                    file_descriptor dd -1
+    21                                      
+    22                                  
+    23                                  ; our code starts here
+    24                                  segment code use32 class=code
+    25                                      start:
+    26                                      
+    27 00000000 B90E000000                      mov ecx, len_text
+    28 00000005 BE[0B000000]                    mov esi,text
+    29                                          modifica_text:
+    30 0000000A 803E30                              cmp byte [esi],'0'
+    31 0000000D 7C08                                jl not_digit
+    32 0000000F 803E39                              cmp byte[esi],'9'
+    33 00000012 7F03                                jg not_digit
+    34                                                  ; if it is here, it is a digit
+    35 00000014 C60643                                  mov byte[esi],'C'
+    36                                          
+    37                                              not_digit:
+    38 00000017 46                                  inc esi
+    39 00000018 E2F0                            loop modifica_text
+    40                                          
+    41                                          ; call fopen() to create the file
+    42                                          ; fopen() will return a file descriptor in the EAX or 0 in case of error
+    43                                          ; eax = fopen(file_name, access_mode)
+    44 0000001A 68[1A000000]                    push mod_acces
+    45 0000001F 68[00000000]                    push file_name
+    46 00000024 FF15[00000000]                  call [fopen]
+    47 0000002A 83C408                          add esp, 4*2
+    48                                          
+    49 0000002D A3[1C000000]                    mov [file_descriptor],eax
+    50 00000032 83F800                          cmp eax, 0
+    51 00000035 7423                            je final
+    52                                              ; write the text to file using fprintf()
+    53                                              ; fprintf(file_descriptor,text)
+    54 00000037 68[0B000000]                        push dword text
+    55 0000003C FF35[1C000000]                      push dword [file_descriptor]
+    56 00000042 FF15[00000000]                      call [fprintf]
+    57 00000048 83C408                              add esp, 4*2
+    58                                          
+    59                                              ; call fclose() to close the file
+    60                                              ; fclose(file_descriptor)
+    61 0000004B FF35[1C000000]                      push dword [file_descriptor]
+    62 00000051 FF15[00000000]                      call [fclose]
+    63 00000057 83C404                              add esp, 4
+    64                                          
+    65                                          final:
+    66                                          ; exit(0)
+    67 0000005A 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    68 0000005C FF15[00000000]                  call    [exit]       ; call exit to terminate the program

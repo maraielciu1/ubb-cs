@@ -1,0 +1,104 @@
+     1                                  bits 32 
+     2                                  
+     3                                  global start        
+     4                                  
+     5                                  ; declare external functions needed by our program
+     6                                  extern exit, fopen, fclose, fread, fwrite
+     7                                  import exit msvcrt.dll 
+     8                                  import fopen msvcrt.dll 
+     9                                  import fread msvcrt.dll 
+    10                                  import fclose msvcrt.dll 
+    11                                  import fwrite msvcrt.dll
+    12                                  
+    13                                  ; our data is declared here 
+    14                                  segment data use32 class=data
+    15 00000000 696E7075742E747874-         nume_fisier db "input.txt", 0   ; numele fisierului care va fi deschis
+    15 00000009 00                 
+    16 0000000A 722B00                      mod_acces db "r+", 0             ; modul de deschidere a fisierului
+    17 0000000D FFFFFFFF                    descriptor_fis dd -1            ; variabila in care vom salva descriptorul fisierului - necesar pentru a putea face referire la fisier
+    18 00000011 00000000                    nr_car_citite dd 0              ; variabila in care vom salva numarul de caractere citit din fisier in etapa curenta
+    19                                      len equ 100                     ; numarul maxim de elemente citite din fisier intr-o etapa
+    20 00000015 <res 00000064>              buffer resb len                 ; sirul in care se va citi textul din fisier
+    21                                  
+    22                                      
+    23                                  ; inlocuieste cifrele cu 'C'
+    24                                  ; our code starts here
+    25                                  segment code use32 class=code
+    26                                      start:
+    27                                          ; apelam fopen pentru a deschide fisierul
+    28                                          ; functia va returna in EAX descriptorul fisierului sau 0 in caz de eroare
+    29                                          ; eax = fopen(nume_fisier, mod_acces)
+    30 00000000 68[0A000000]                    push dword mod_acces
+    31 00000005 68[00000000]                    push dword nume_fisier
+    32 0000000A FF15[00000000]                  call [fopen]
+    33 00000010 83C408                          add esp, 4*2
+    34                                          
+    35                                          ; verificam daca functia fopen a creat cu succes fisierul (daca EAX != 0)
+    36 00000013 83F800                          cmp eax, 0                  
+    37 00000016 745D                            je final
+    38                                          
+    39 00000018 A3[0D000000]                    mov [descriptor_fis], eax   ; salvam valoarea returnata de fopen in variabila descriptor_fis
+    40                                          
+    41                                          ; echivalentul in pseudocod al urmatoarei secvente de cod este:
+    42                                          ;repeta
+    43                                          ;   nr_car_citite = fread(buffer, 1, len, descriptor_fis)
+    44                                          ;   daca nr_car_citite > 0
+    45                                          ;       ; instructiuni pentru procesarea caracterelor citite in aceasta etapa
+    46                                          ;pana cand nr_car_citite == 0
+    47                                          
+    48                                          bucla:
+    49                                              ; citim o parte (100 caractere) din textul in fisierul deschis folosind functia fread
+    50                                              ; eax = fread(buffer, 1, len, descriptor_fis)
+    51 0000001D FF35[0D000000]                      push dword [descriptor_fis]
+    52 00000023 6A64                                push dword len
+    53 00000025 6A01                                push dword 1
+    54 00000027 68[15000000]                        push dword buffer
+    55 0000002C FF15[00000000]                      call [fread]
+    56 00000032 83C410                              add esp, 4*4
+    57                                              
+    58                                              ; eax = numar de caractere / bytes citite
+    59 00000035 83F800                              cmp eax, 0          ; daca numarul de caractere citite este 0, am terminat de parcurs fisierul
+    60 00000038 742C                                je cleanup
+    61                                  
+    62 0000003A A3[11000000]                        mov [nr_car_citite], eax        ; salvam numarul de caractere citie
+    63                                              
+    64                                              ; instructiunile pentru procesarea caracterelor citite in aceasta etapa incep aici
+    65 0000003F B900000000                          mov ecx, 0  ; index pentru parcurgerea buffer-ului
+    66                                  
+    67                                              procesare_caractere:
+    68 00000044 3B0D[11000000]                          cmp ecx, [nr_car_citite]  ; comparam indexul cu numarul de caractere citite
+    69 0000004A 7D18                                    jge reluare_bucla         ; daca indexul >= numarul de caractere citite, reluam bucla
+    70                                  
+    71                                                  ; citim caracterul curent din buffer
+    72 0000004C 8A81[15000000]                          mov al, [buffer + ecx]
+    73                                  
+    74                                                  ; verificam daca caracterul este o cifra
+    75 00000052 3C30                                    cmp al, '0'
+    76 00000054 7C0B                                    jl  nu_e_cifra
+    77 00000056 3C39                                    cmp al, '9'
+    78 00000058 7F07                                    jg  nu_e_cifra
+    79                                  
+    80                                                  ; daca am ajuns aici, caracterul este o cifra, il inlocuim cu 'C'
+    81 0000005A C681[15000000]43                        mov byte [buffer + ecx], 'C'
+    82                                  
+    83                                              nu_e_cifra:
+    84                                              ; incrementam indexul si reluam procesarea
+    85 00000061 41                                  inc ecx
+    86 00000062 EBE0                                jmp procesare_caractere
+    87                                  
+    88                                          reluare_bucla:
+    89                                              
+    90                                          ; reluam bucla pentru a citi alt bloc de caractere
+    91 00000064 EBB7                            jmp bucla
+    92                                          
+    93                                        cleanup:
+    94                                          ; apelam functia fclose pentru a inchide fisierul
+    95                                          ; fclose(descriptor_fis)
+    96 00000066 FF35[0D000000]                  push dword [descriptor_fis]
+    97 0000006C FF15[00000000]                  call [fclose]
+    98 00000072 83C404                          add esp, 4
+    99                                          
+   100                                        final:  
+   101                                          ; exit(0)
+   102 00000075 6A00                            push    dword 0      
+   103 00000077 FF15[00000000]                  call    [exit]       
