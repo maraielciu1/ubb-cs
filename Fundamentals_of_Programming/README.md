@@ -10,6 +10,7 @@ This repository contains assignments and projects related to Fundamentals of Pro
 
 ## Contents
 
+* Lab work
 - `assignment_1/`: Introduction to Python
 - `assignment_2/`: Sorting
 - `assignment_3/`: Computing Complexities
