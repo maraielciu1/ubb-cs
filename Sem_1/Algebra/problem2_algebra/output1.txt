@@ -1,0 +1,4 @@
+2. on A = {a1}, these are the following associative op.:
+a1
+
+1. the number of associative operations on set A = {a1} is 1

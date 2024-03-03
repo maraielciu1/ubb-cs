@@ -1,0 +1,78 @@
+"""
+Input: non-zero integer n
+Output:
+        1. the number of bases of the vector space Z_2^n (2^n) over Z_2
+        2. the vectors for each such basis for n <= 4
+"""
+import numpy as np
+from itertools import combinations, permutations
+
+def nr_of_bases(n):
+    """
+    This function calculates the number of bases of the vector space Z_2^n over Z_2
+    with the following formula: 2^n - 2^i, where i = 0, 1, ..., n-1
+    """
+    result = 1
+    for i in range(n):
+        result *= (2**n-2**i)
+    return result
+
+def generate_all_combinations(n):
+    """
+    This function generates all combinations of 0 and 1 for n (all the vectors in (Z_2)^n),
+    by backtracking.
+    """
+    def backtrack(index, path):
+        # Base case: if the path has reached the desired length, add it to the result
+        if index == n:
+            result.append(path.copy())
+            return
+
+        # Include 0 at the current index
+        path.append(0)
+        backtrack(index + 1, path)
+        path.pop()  # Backtrack by removing the last element
+
+        # Include 1 at the current index
+        path.append(1)
+        backtrack(index + 1, path)
+        path.pop()  # Backtrack by removing the last element
+
+    result = []  # To store all combinations
+    backtrack(0, [])  # Start the backtracking from index 0 with an empty path
+    return result
+
+def linearly_indep(vectors, n):
+    """
+    This function checks if the vectors are linearly independent
+    """
+    result = []
+    to_check = list(permutations(vectors, n))
+    # we check if the determinant of the matrix formed by the vectors is not 0
+    for vect in to_check:
+        det = np.linalg.det(vect)
+        if det % 2:
+            result.append(vect)
+
+    return result
+
+def inverse_vect(vector,n):
+    vector1 = combinations(vector,n)
+    return vector1
+
+
+input_file = open('input.txt', 'r')
+output_file = open('output.txt', 'w')
+n = int(input_file.read())
+input_file.close()
+output_file.write(f"1. the number of bases of the vector space Z_2^{n} over Z_2 is {nr_of_bases(n)} \n")
+if n <= 4:
+    output_file.write(f"2. the vectors for each such basis for n = {n} are: \n")
+    comb = generate_all_combinations(n)
+    result = linearly_indep(comb, n)
+    for vect in result:
+        result1 = inverse_vect(vect,n)
+        for vect1 in result1:
+            output_file.write(f"{vect1} \n")
+
+output_file.close()
