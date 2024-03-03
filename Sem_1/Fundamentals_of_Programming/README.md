@@ -22,4 +22,14 @@ This repository contains assignments and projects related to Fundamentals of Pro
 - `assignment_9/`: Assignment8+infinite undo/redo functions
 - `assignment_10/`: Nine men's morris human vs computer game with advanced computer player
 
+* Exam practice
+- `game of life/`
+- `hammurabi/`
+- `hangman/`
+- `order_and_chaos/`
+- `scramble/`
+- `reservations/`
+
+* Seminar work (2-10)
+
 
