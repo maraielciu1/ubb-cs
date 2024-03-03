@@ -1,4 +1,4 @@
-# Welcome to my FP (Fundamentals of Programming) Repo! 😊
+# Welcome to my CSA (Computer System Architecture) Repo! 😊
 
 This is a collection of all the assignments from Semester 1, First Year. They are all written in Assembly or ASM+C. 
 
