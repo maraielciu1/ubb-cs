@@ -19,8 +19,8 @@ Each folder in this repository corresponds to a specific project or assignment. 
 The projects contained in this repository are primarily in:
 
 - Python 🐍
-- Assembly
-- C/C++
+- Assembly 😵‍💫
+- C/C++ ✅
 - And potentially more as I explore new technologies and languages!
 
 ## How to Use
