@@ -12,6 +12,8 @@ Each folder in this repository corresponds to a specific project or assignment. 
 
 - `Fundamentals_of_programming`: Labs, tests and exams, written projects in python
 - `Computer_system_architecture`: Labs, tests and exams, written projects in asm
+- `Algebra`: Projects in python
+- `Analysis`: Projects in python
 
 
 ## Languages and Tools
