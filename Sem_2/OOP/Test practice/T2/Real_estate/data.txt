@@ -1,0 +1,4 @@
+Name Ana - income: 7000.000000
+Name Marius - income: 1000.000000
+Name ASA - income: 14000.000000 money from investment 500.000000
+Name Holchim - income: 14000.000000 money from investment 500.000000

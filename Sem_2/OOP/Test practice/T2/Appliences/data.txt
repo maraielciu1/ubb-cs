@@ -1,0 +1,2 @@
+Refrigerator->class: A+ with freezer  id: 1. weight: 30.000000
+Dish washer->  id: 3. weight: 20.000000 washingCycleLength: 2.000000 consumedElectricityForOneHour: 30.000000

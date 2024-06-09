@@ -1,0 +1,13 @@
+While_cpp,Neso,https://youtu.be/iF4i423144E?si=zJP_fTU14CWKB6bG,30:4,404
+For_cpp,Neso,https://youtu.be/yS8DUrQy_ow?si=9MRuW3a55b6Fw-MN,10:5,503
+Vectors_cpp,Neso,https://youtu.be/H1cK1QXw6Zs?si=3wsjc_uGXdoJNV4E,33:7,701
+Tutorial_pisi,Mosh,https://www.youtube.com/watch?v=ZzabdhTrSt,100:1,103
+Vectors_cpp1,Neso,https://youtu.be/H1cK1QXw6Zs?si=3wsjc_uGXdoJNV4M,30:7,100
+Namespaces_cpp,Neso,https://youtu.be/ZZWTh142s4w?si=WBW3io0OSOyS2cSv,12:3,302
+Tutorial,Alex,https://www.youtube.com/watch?v=ZzabdhTaSt,100:1,103
+Tutorial3,Mosh,https://www.tutorial11.com,30:2,100
+If_cpp,Tim,https://youtu.be/Zkr0aAdD1Ww?si=NN1GwUlHQuMIYQEM,17:9,902
+If_cpp1,Tim,https://youtu.be/Zkr0aAdD1Ww?si=NN1GwUlHQuaIYQEM,17:9,901
+Tutorial_for_beginners1,Mosh,https://www.youtube.com/watch?v=ZzaPdXTrSb,100:1,103
+Characters_cpp,Neso,https://youtu.be/sb0EE68Yk0I?si=BkbXo4cUOO_mMIG2,20:6,601
+Characters_cpp3,Neso,https://youtu.be/sb0EE68Yk0I?si=BkbXo4cUOO_mMIG21,20:6,601

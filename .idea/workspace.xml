@@ -3,75 +3,203 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="94c83099-e53d-4050-8a7d-dd2f9adad20b" name="Changes" comment="Algebra+Analysis">
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab11/factorial/factorial.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab11/factorial/main_factorial.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab11/find_max/find_max.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab11/find_max/main_max.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab11/pb24L11.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab11/pb8L11.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab11/pb9L11.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab12/23 ian.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab12/find_min_max/findmax.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab2/pb1.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab2/pb10.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab2/pb2.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab2/pb3.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab2/pb4.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab2/pb5.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab2/pb6.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab2/pb7.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab2/pb8.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab2/pb9.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab3/pb1.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab3/pb10.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab3/pb2.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab3/pb3.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab3/pb4.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab3/pb5.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab3/pb6.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab3/pb7.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab3/pb8.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab3/pb9.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab3/test1.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab4/ex1L4.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab4/pb1.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab4/pb2.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab4/pb3.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab4/pb4.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab4/pb5L4.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab5/ex24_lab5.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab5/pb1.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab5/pb2.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab5/pb3_example.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab5/pb4.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab5/pb5.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab6/ex1L6.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab6/ex24L6.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab6/ex9L6.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab6/exemplu.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab6/trick_q.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab8/pb24-textfile/input.txt.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab8/pb24-textfile/output.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab8/pb24-textfile/pb24L8_02.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab8/pb24-textfile/pb24L8_02.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab8/pb24-textfile/pb24L8_02.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab8/pb24-textfile/pb24L8_text.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab8/pb24-textfile/pb24L8_text.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab8/pb24-textfile/pb24L8_text.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab8/pb24L8_console.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab8/pb9L8_console.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab8/pb9L8_file.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab8/shl_shr.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab8/xlat_ex.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sem_1/Fundamentals_of_Programming/27 ian.asm" afterDir="false" />
+    <list default="true" id="94c83099-e53d-4050-8a7d-dd2f9adad20b" name="Changes" comment="ASC">
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/cmake-build-debug/.cmake/api/v1/query/cache-v2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/cmake-build-debug/.cmake/api/v1/query/cmakeFiles-v1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/cmake-build-debug/.cmake/api/v1/query/codemodel-v2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/cmake-build-debug/.cmake/api/v1/query/toolchains-v1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/cmake-build-debug/.cmake/api/v1/reply/cache-v2-b6184f84200339538e02.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-c3bceb9da3baef6f4256.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-05dd7f1c600ff123a2d0.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/cmake-build-debug/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/cmake-build-debug/.cmake/api/v1/reply/index-2024-03-02T12-19-20-0772.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/cmake-build-debug/.cmake/api/v1/reply/target-a1_maraielciu1_1-Debug-64f2a6a7b4b4e9e94748.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-e0f424cc4383644d699f.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/cmake-build-debug/CMakeFiles/3.26.4/CMakeCCompiler.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/cmake-build-debug/CMakeFiles/3.26.4/CMakeSystem.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/cmake-build-debug/CMakeFiles/3.26.4/CompilerIdC/CMakeCCompilerId.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/cmake-build-debug/CMakeFiles/cmake.check_cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/cmake-build-debug/a1_maraielciu1_1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/cmake-build-debug/build.ninja" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a1/main.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/Domain/Domain.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/Domain/Domain.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/Domain/DynamicArray.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/Domain/DynamicArray.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/Repo/Repository.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/Repo/Repository.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/Service/Service.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/Service/Service.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/Tests/Test.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/Tests/Test.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/UndoRedo/Operation.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/UndoRedo/Operation.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/UndoRedo/UndoRedoRepo.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/UndoRedo/UndoRedoRepo.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/cmake-build-debug/.cmake/api/v1/query/cache-v2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/cmake-build-debug/.cmake/api/v1/query/cmakeFiles-v1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/cmake-build-debug/.cmake/api/v1/query/codemodel-v2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/cmake-build-debug/.cmake/api/v1/query/toolchains-v1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/cmake-build-debug/.cmake/api/v1/reply/cache-v2-5bc7a468c0fd0366ddd1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-6564592ea39825c9a5a3.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-2b06680a972a42763f13.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/cmake-build-debug/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/cmake-build-debug/.cmake/api/v1/reply/index-2024-03-25T08-26-58-0132.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/cmake-build-debug/.cmake/api/v1/reply/target-a2_3_maraielciu1-Debug-517dc6c6b8adc466b17e.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-e0f424cc4383644d699f.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/cmake-build-debug/CMakeFiles/3.26.4/CMakeCCompiler.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/cmake-build-debug/CMakeFiles/3.26.4/CMakeSystem.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/cmake-build-debug/CMakeFiles/3.26.4/CompilerIdC/CMakeCCompilerId.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/cmake-build-debug/CMakeFiles/cmake.check_cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/cmake-build-debug/a2_3_maraielciu1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/cmake-build-debug/build.ninja" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a2-3/ui.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/Domain/DynamicArray.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/Domain/DynamicArray.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/Domain/Tutorial.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/Domain/Tutorial.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/Repository/Repo.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/Repository/Repo.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/Service/Service.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/Service/Service.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/Tests/TestDynamicArray.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/Tests/TestDynamicArray.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/Tests/TestRepo.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/Tests/TestRepo.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/Tests/TestService.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/Tests/TestService.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/Tests/TestTutorial.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/Tests/TestTutorial.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/UI/Ui.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/UI/Ui.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug-coverage/.cmake/api/v1/query/cache-v2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug-coverage/.cmake/api/v1/query/cmakeFiles-v1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug-coverage/.cmake/api/v1/query/codemodel-v2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug-coverage/.cmake/api/v1/query/toolchains-v1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug-coverage/.cmake/api/v1/reply/cache-v2-c4b5d6469304aeee4071.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug-coverage/.cmake/api/v1/reply/cmakeFiles-v1-e818b51aec1949aa2d5c.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug-coverage/.cmake/api/v1/reply/codemodel-v2-3a0e59d7475df5128b65.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug-coverage/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug-coverage/.cmake/api/v1/reply/index-2024-03-24T11-57-04-0919.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug-coverage/.cmake/api/v1/reply/target-oop_a4_5_maraielciu1-Debug-8ebf50c0f127654c2111.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug-coverage/.cmake/api/v1/reply/toolchains-v1-d0a1558f295fbf3c0273.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug-coverage/.ninja_deps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug-coverage/.ninja_log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug-coverage/CMakeCache.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug-coverage/CMakeFiles/3.26.4/CMakeCCompiler.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug-coverage/CMakeFiles/3.26.4/CMakeCXXCompiler.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug-coverage/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug-coverage/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug-coverage/CMakeFiles/3.26.4/CMakeSystem.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug-coverage/CMakeFiles/3.26.4/CompilerIdC/CMakeCCompilerId.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug-coverage/CMakeFiles/3.26.4/CompilerIdCXX/CMakeCXXCompilerId.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug-coverage/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug-coverage/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug-coverage/CMakeFiles/clion-Debug-Coverage-log.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug-coverage/CMakeFiles/clion-environment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug-coverage/CMakeFiles/cmake.check_cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug-coverage/CMakeFiles/rules.ninja" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug-coverage/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug-coverage/build.ninja" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug-coverage/cmake_install.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug-coverage/coverage-oop_a4_5_maraielciu1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug-coverage/oop_a4_5_maraielciu1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug/.cmake/api/v1/query/cache-v2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug/.cmake/api/v1/query/cmakeFiles-v1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug/.cmake/api/v1/query/codemodel-v2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug/.cmake/api/v1/query/toolchains-v1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug/.cmake/api/v1/reply/cache-v2-9a6e81c44c3f1298fa1b.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-3653eea281606c30b39f.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-20b4a506c879261f9dc1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug/.cmake/api/v1/reply/index-2024-03-24T11-57-04-0919.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug/.cmake/api/v1/reply/target-oop_a4_5_maraielciu1-Debug-cb10159b6b85cf228279.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-d0a1558f295fbf3c0273.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug/CMakeFiles/3.26.4/CMakeCCompiler.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug/CMakeFiles/3.26.4/CMakeCXXCompiler.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug/CMakeFiles/3.26.4/CMakeSystem.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug/CMakeFiles/3.26.4/CompilerIdC/CMakeCCompilerId.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug/CMakeFiles/3.26.4/CompilerIdCXX/CMakeCXXCompilerId.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug/CMakeFiles/cmake.check_cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug/build.ninja" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/cmake-build-debug/oop_a4_5_maraielciu1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sem_2/OOP/a4-5/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -97,34 +225,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/maraielciu/Projects/ubb-cs/Sem_1/Algebra&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/maraielciu/Projects/ubb-cs/Sem_2/OOP",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Sem_2/OOP" />
       <recent name="$PROJECT_DIR$/Sem_1/Algebra" />
       <recent name="$PROJECT_DIR$/Sem_1/Analysis" />
       <recent name="$PROJECT_DIR$/Sem_1/Analysis/assignment_4" />
       <recent name="$PROJECT_DIR$/Fundamentals_of_Programming" />
-      <recent name="$PROJECT_DIR$/Fundamentals_of_Programming/Exam/order_and_chaos" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Sem_1/Computer system architecture/Practical exam" />
       <recent name="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab12" />
       <recent name="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab12/find_min_max" />
       <recent name="$PROJECT_DIR$/Sem_1/Fundamentals_of_Programming" />
       <recent name="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab11" />
-      <recent name="$PROJECT_DIR$/Sem_1/Computer system architecture/Lab11/find_max" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -145,7 +277,9 @@
       <workItem from="1709390107591" duration="17000" />
       <workItem from="1709390213308" duration="933000" />
       <workItem from="1709452890637" duration="2920000" />
-      <workItem from="1709472918215" duration="607000" />
+      <workItem from="1709472918215" duration="1400000" />
+      <workItem from="1709474500949" duration="43000" />
+      <workItem from="1717919419137" duration="511000" />
     </task>
     <task id="LOCAL-00001" summary="Updated lab work">
       <option name="closed" value="true" />
@@ -179,7 +313,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709455249159</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ASC">
+      <option name="closed" value="true" />
+      <created>1709473719082</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1709473719082</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +332,7 @@
     <MESSAGE value="Exam subjects" />
     <MESSAGE value="Seminars updated" />
     <MESSAGE value="Algebra+Analysis" />
-    <option name="LAST_COMMIT_MESSAGE" value="Algebra+Analysis" />
+    <MESSAGE value="ASC" />
+    <option name="LAST_COMMIT_MESSAGE" value="ASC" />
   </component>
 </project>

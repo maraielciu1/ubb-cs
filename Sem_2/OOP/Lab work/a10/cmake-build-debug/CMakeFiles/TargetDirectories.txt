@@ -1,0 +1,5 @@
+/Users/maraielciu/Desktop/project-oop/oop-a10-maraielciu1/cmake-build-debug/CMakeFiles/oop-a10-maraielciu1.dir
+/Users/maraielciu/Desktop/project-oop/oop-a10-maraielciu1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/maraielciu/Desktop/project-oop/oop-a10-maraielciu1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/maraielciu/Desktop/project-oop/oop-a10-maraielciu1/cmake-build-debug/CMakeFiles/oop-a10-maraielciu1_autogen_timestamp_deps.dir
+/Users/maraielciu/Desktop/project-oop/oop-a10-maraielciu1/cmake-build-debug/CMakeFiles/oop-a10-maraielciu1_autogen.dir

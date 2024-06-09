@@ -1,0 +1,10 @@
+Tutorial_for_beginners,Mosh,https://www.youtube.com/watch?v=ZzaPdXTrSb,100:1,101
+Tutorial_cpp,Mosh,https://youtu.be/gfkTfcpWqAY?si=UpMH2dlLmrzd3a6F,100:2,200
+Namespaces_cpp,Neso,https://youtu.be/ZZWTh142s4w?si=WBW3io0OSOyS2cSv,12:3,300
+While_cpp,Neso,https://youtu.be/iF4i423144E?si=zJP_fTU14CWKB6bG,30:4,400
+For_cpp,Neso,https://youtu.be/yS8DUrQy_ow?si=9MRuW3a55b6Fw-MN,10:5,502
+Characters_cpp,Neso,https://youtu.be/sb0EE68Yk0I?si=BkbXo4cUOO_mMIG2,20:6,600
+Vectors_cpp,Neso,https://youtu.be/H1cK1QXw6Zs?si=3wsjc_uGXdoJNV4E,33:7,700
+Arrays_cpp,Tim,https://youtu.be/1FVBeLD_FdE?si=aV9wgddL6yiR9VbV,21:8,800
+If_cpp,Tim,https://youtu.be/Zkr0aAdD1Ww?si=NN1GwUlHQuMIYQEM,17:9,900
+DynamicArray,Eric,https://youtu.be/MwwbgqG6bSk?si=jQyVzHwm4KoljgXK,12:10,1000

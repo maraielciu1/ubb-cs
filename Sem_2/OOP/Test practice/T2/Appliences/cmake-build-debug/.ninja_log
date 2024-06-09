@@ -1,0 +1,6 @@
+# ninja log v5
+0	551	1713796258701566641	CMakeFiles/appliences.dir/Appliance.cpp.o	468bf5c0b5a3d993
+0	558	1713796258709344427	CMakeFiles/appliences.dir/main.cpp.o	d477e0373933e052
+1	582	1713796258733074689	CMakeFiles/appliences.dir/UI.cpp.o	5d02ad5a10523a08
+1	629	1713796258781361192	CMakeFiles/appliences.dir/Service.cpp.o	33c420a335ca14c5
+629	743	1713796258894743987	appliences	edafcfd4d4ce6571
