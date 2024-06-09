@@ -20766,7 +20766,7 @@ QCPGraphData::QCPGraphData(double key, double value) :
   also access and modify the data via the \ref data method, which returns a pointer to the internal
   \ref QCPGraphDataContainer.
 
-  Graphs are used to display single-valued data. Single-valued means that there should only be one
+  GA are used to display single-valued data. Single-valued means that there should only be one
   data point per unique key coordinate. In other words, the graph can't have \a loops. If you do
   want to plot non-single-valued curves, rather use the QCPCurve plottable.
 

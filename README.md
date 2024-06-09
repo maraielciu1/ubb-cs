@@ -10,10 +10,18 @@ This repository is dedicated to my university projects. It serves as a personal 
 
 Each folder in this repository corresponds to a specific project or assignment. They are organized by courses and semesters to make navigation easier.
 
+Sem_1
 - `Fundamentals_of_programming`: Labs, tests and exams, written projects in python
 - `Computer_system_architecture`: Labs, tests and exams, written projects in asm
 - `Algebra`: Projects in python
 - `Analysis`: Projects in python
+
+Sem_2
+- `OOP`: Object-Oriented Programming-> Labs, tests and exams, written projects in C/C++
+- `DSA`: Data Structures and Algorithms-> Labs, written projects in C/C++
+- `DS` : Dynamical Systems-> Labs, written projects in SageMath
+- `OS` : Operating Systems-> Labs, written projects in C, SHELL
+- `GA` : Graph Algorithms-> Labs, written projects in Python
 
 
 ## Languages and Tools

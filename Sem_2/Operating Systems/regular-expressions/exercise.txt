@@ -1,3 +1,0 @@
-grep -E -i "^[^:]*[aeiou][^:]*[aeiou][^:]*:" /etc/passwd    =>    grep -E -i "^([^:]*[aeiou][^:]*){2}:" /etc/passwd
--> find the usernames with at least 2 vowels
-grep -E -i "^([^:]+:){4}[^:]* \<Ion\>" /etc/passwd      => search ION as name

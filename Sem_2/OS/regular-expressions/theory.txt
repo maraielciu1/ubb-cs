@@ -1,0 +1,62 @@
+grep - search
+sed - search and replace
+
+*.txt -> "wildcard" that gives every file with the txt extension
+
+sed does not replace the content of the file, only creates a copy
+sed -E 's/.....(search)/......(replace)/.....(flags-optional)' filename
+
+for flags ->g === global (changes on the entire line)
+	  ->i === case insesitive
+sed -E 's/[aeiou]/*/gi' a.txt replace all vowels with *
+sed -E 's/([aeiou])/!\1/gi' a.txt insert before every vowel !
+sed -E 's/([A-Z])([a-z])/\2\1/g' a.txt   switch every sequence of uppercase - lowercase letters
+
+
+sed -E 'y/aeiou/AEIOU/g' replaces the lower case vowel with it's upper case correspondent bcs of y - "maping"
+
+sed -E '/Ana/d' - d for delete => return all the lines that do NOT contain Ana
+
+
+awk '{print $5}' a.txt -> prints the 5-th word on every line, empty line if it does not have 5 words
+awk -F: '{print $3}' a.txt -> change the implicit delimitator which is space with : 
+awk -F: '{print $0}' a.txt -> prints the whole line
+awk '{print NR, $0}' a.txt -> the nr of the line
+awk '{print NF, $0}' a.txt -> the nr of fields
+awk 'BEGIN{print "start"} {print NF} END{print "end"}' a.txt   -> print start at the beginning, the nr of fields of each line, and then end at the end
+awk -f ex.awk a.txt  -> if we write multiple instructions and compute them with awk
+AWK SCRIPT: 
+BEGIN{
+
+print "start"
+
+}
+
+NR%2==0{
+print $0
+}
+
+END{
+
+print "end"
+
+}
+
+BEGIN{
+
+print "start"
+
+}
+
+NR%2==0 && length($2)>5{
+print $0
+}
+
+END{
+
+print "end"
+
+}
+
+
+awk -F: -f passwd1.awk /etc/passwd | awk '{print $5}' | sed -E 's/[aeiou]/*/gi'

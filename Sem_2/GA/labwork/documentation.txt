@@ -1,0 +1,145 @@
+This code implements a directed graph in Python, using object-oriented programming concepts. It includes a main program that interacts with users through a console menu, allowing them to perform various operations on the graph. Below is a detailed documentation of the key components of this implementation:
+
+Class: DirectedGraph
+The DirectedGraph class models a directed graph using adjacency lists for efficient edge look-up and operations. It provides methods for adding and removing vertices and edges, as well as querying graph properties.
+
+Attributes
+__outbound_list: A dictionary that maps each vertex to a list of its outbound neighbors.
+__inbound_list: A dictionary that maps each vertex to a list of its inbound neighbors.
+__edges: A dictionary that maps a tuple representing an edge (source, target) to its associated cost.
+Methods
+__init__(self, nr_of_vertices=0): Initializes a new graph. Optionally, a number of vertices can be specified, which are added to the graph without any edges.
+get_nr_of_vertices(self): Returns the number of vertices in the graph.
+get_nr_of_edges(self): Returns the number of edges in the graph.
+get_vertices(self): Returns a list of all vertices in the graph.
+get_in_degree(self, vertex): Returns the in-degree of the specified vertex.
+get_out_degree(self, vertex): Returns the out-degree of the specified vertex.
+get_out_neighbors(self, vertex): Returns a list of outbound neighbors of the specified vertex.
+get_in_neighbors(self, vertex): Returns a list of inbound neighbors of the specified vertex.
+get_edge_cost(self, edge_id): Returns the cost of the specified edge.
+set_edge_cost(self, edge_id, new_cost): Sets a new cost for the specified edge.
+get_endpoints(self, edge_id): Returns the endpoints of the specified edge if it exists.
+copy(self): Creates a deep copy of the graph.
+is_edge(self, source, target): Checks if there is an edge from the source to the target.
+add_vertex(self, vertex): Adds a new vertex to the graph.
+remove_vertex(self, vertex): Removes a vertex and all related edges from the graph.
+add_edge(self, source, target, cost): Adds a new edge from the source to the target with the specified cost.
+remove_edge(self, source, target): Removes the edge from the source to the target.
+modify_edge(self, source, target, new_cost): Modifies the cost of an existing edge.
+parse_outbound_edges(self, vertex): Returns a list of tuples representing outbound edges from the specified vertex.
+parse_inbound_edges(self, vertex): Returns a list of tuples representing inbound edges to the specified vertex.
+create_random_graph(n_vertices, n_edges): Creates a random graph with a specified number of vertices and edges.
+__str__(self): Returns a string representation of the graph.
+write_to_file(self, file_name): Writes the graph to a file.
+read_from_file(self, file_name): Reads a graph from a file and replaces the current graph with it.
+clear(self): Clears the graph, removing all vertices and edges.
+Main Program
+The main program provides a user interface to interact with the graph. It displays a menu with options to perform various operations such as adding or removing vertices and edges, modifying edge costs, generating random graphs, and writing to or reading from files.
+
+Users can select an option by entering the corresponding number. The program continues to display the menu and prompt for input until the user chooses to exit by entering '0'.
+
+This code is a comprehensive example of implementing and interacting with a directed graph data structure in Python. It demonstrates key concepts such as class design, method implementation, and simple user interaction via the command line.
+
+
+
+
+menu:
+ # graph.add_vertex(0)
+    # graph.add_vertex(1)
+    # graph.add_vertex(2)
+    # graph.add_vertex(3)
+    # graph.add_vertex(4)
+    # graph.add_edge(0, 1,1)
+    # graph.add_edge(1, 2,1)
+    # graph.add_edge(2, 3,1)
+    # graph.add_edge(3, 0,1)
+    # graph.add_edge(2, 0,1)
+    # graph.print_sccs()
+    # graph = graph.create_random_graph(10, 20)
+    # while True:
+    #     print_menu()
+    #     choice = input("Choose an option: ").strip()
+    #     if choice == '0':
+    #         print("Bye!!")
+    #         break
+    #     elif choice == '1':
+    #         print(f"Number of vertices: {graph.get_nr_of_vertices()} and number of edges: {graph.get_nr_of_edges()}")
+    #     elif choice == '2':
+    #         print(f"Vertices: {graph.get_vertices()}")
+    #     elif choice == '3':
+    #         source = int(input("Source vertex: "))
+    #         target = int(input("Target vertex: "))
+    #         print("There is an edge:" if graph.is_edge(source, target) else "No edge found.")
+    #     elif choice == '4':
+    #         vertex = int(input("Vertex: "))
+    #         print(f"In degree: {graph.get_in_degree(vertex)}")
+    #     elif choice == '5':
+    #         vertex = int(input("Vertex: "))
+    #         print(f"Out degree: {graph.get_out_degree(vertex)}")
+    #     elif choice == '6':
+    #         vertex = int(input("Vertex: "))
+    #         print(f"Outbound edges: {graph.parse_outbound_edges(vertex)}")
+    #     elif choice == '7':
+    #         vertex = int(input("Vertex: "))
+    #         print(f"Inbound edges: {graph.parse_inbound_edges(vertex)}")
+    #     elif choice == '8':
+    #         edge_id = (int(input("Source vertex: ")), int(input("Target vertex: ")))
+    #         print(f"Endpoints of the edge: {graph.get_endpoints(edge_id)}")
+    #     elif choice == '9':
+    #         source = int(input("Source vertex: "))
+    #         target = int(input("Target vertex: "))
+    #         new_cost = int(input("New cost: "))
+    #         graph.modify_edge(source, target, new_cost)
+    #         print("Edge modified.")
+    #     elif choice == '10':
+    #         source = int(input("Source vertex: "))
+    #         target = int(input("Target vertex: "))
+    #         cost = int(input("Cost: "))
+    #         graph.add_edge(source, target, cost)
+    #         print("Edge added.")
+    #     elif choice == '11':
+    #         source = int(input("Source vertex: "))
+    #         target = int(input("Target vertex: "))
+    #         graph.remove_edge(source, target)
+    #         print("Edge removed.")
+    #     elif choice == '12':
+    #         vertex = int(input("Vertex to add: "))
+    #         graph.add_vertex(vertex)
+    #         print("Vertex added.")
+    #     elif choice == '13':
+    #         vertex = int(input("Vertex to remove: "))
+    #         graph.remove_vertex(vertex)
+    #         print("Vertex removed.")
+    #     elif choice == '14':
+    #         file_name = input("Enter file name to write graph: ")
+    #         graph.write_to_file(file_name)
+    #         print("Graph written to file.")
+    #     elif choice == '15':
+    #         n_vertices = int(input("Number of vertices: "))
+    #         n_edges = int(input("Number of edges: "))
+    #         try:
+    #             graph = DirectedGraph.create_random_graph(n_vertices, n_edges)
+    #             print("Random graph generated.")
+    #         except ValueError as e:
+    #             print(e)
+    #     elif choice == '16':
+    #         file_name = input("Enter file name to read graph: ")
+    #         try:
+    #             graph.read_from_file(file_name)
+    #             print("Graph read from file.")
+    #         except ValueError as e:
+    #             print(e)
+    #     elif choice == '17':
+    #         print(graph)
+    #     elif choice == '18':
+    #         graph_copy = graph.copy()
+    #         print("Graph copied.")
+    #     else:
+    #         print("Exiting.")
+    #         break
+
+    # Next:
+    # Write a program that, given a graph with costs and two vertices,
+    # finds a lowest cost walk between the given vertices, or prints a message if there are negative
+    # cost cycles in the graph.
+    # The program shall use the matrix multiplication algorithm.

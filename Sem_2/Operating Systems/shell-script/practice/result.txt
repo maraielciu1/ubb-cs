@@ -1,3 +1,0 @@
-
-dir a.txt        1
-. b.txt        1
