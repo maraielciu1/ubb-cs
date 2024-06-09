@@ -1,0 +1,7 @@
+# ninja log v5
+3	439	1715074921530482817	CMakeFiles/SortedIteratedList.dir/App.cpp.o	b123bffa246f2c88
+8	516	1716378106684776170	CMakeFiles/SortedIteratedList.dir/SortedIteratedList.cpp.o	fc3523d562433a67
+3	657	1716373379160973411	CMakeFiles/SortedIteratedList.dir/ExtendedTest.cpp.o	7cf064c92bf44415
+6	300	1716373378801559129	CMakeFiles/SortedIteratedList.dir/ListIterator.cpp.o	d12b912806871312
+516	632	1716378106800329828	SortedIteratedList	47bb299caabb0ee
+7	275	1716378106444321124	CMakeFiles/SortedIteratedList.dir/ShortTest.cpp.o	4467954e053d0f6

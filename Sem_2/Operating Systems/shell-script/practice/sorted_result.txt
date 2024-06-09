@@ -1,0 +1,3 @@
+
+. b.txt        1
+dir a.txt        1
