@@ -1,0 +1,78 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "shopping_list",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "shopping_list::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-shopping_list-Debug-321cf5d8c66a30f14f6f.json",
+					"name" : "shopping_list",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "shopping_list_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-shopping_list_autogen-Debug-795447ebcfaf3f2b5d21.json",
+					"name" : "shopping_list_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "shopping_list_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-shopping_list_autogen_timestamp_deps-Debug-ea49cda4bd3e89974fa3.json",
+					"name" : "shopping_list_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/maraielciu/Desktop/project-oop/shopping_list/cmake-build-debug",
+		"source" : "/Users/maraielciu/Desktop/project-oop/shopping_list"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 5
+	}
+}

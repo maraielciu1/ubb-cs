@@ -1,0 +1,5 @@
+/Users/maraielciu/Desktop/project-oop/task_manager/cmake-build-debug/CMakeFiles/task_manager.dir
+/Users/maraielciu/Desktop/project-oop/task_manager/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/maraielciu/Desktop/project-oop/task_manager/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/maraielciu/Desktop/project-oop/task_manager/cmake-build-debug/CMakeFiles/task_manager_autogen_timestamp_deps.dir
+/Users/maraielciu/Desktop/project-oop/task_manager/cmake-build-debug/CMakeFiles/task_manager_autogen.dir

@@ -1,0 +1,5 @@
+Solve_OOP|120|1
+Respond_to_emails|45|2
+Eat|60|3
+Visit|240|1
+Buy_clothes|120|2

@@ -1,0 +1,2 @@
+Non historical house,  building from: 2000
+Block with 100 total apartments and 0 occupied aps,  building from: 2000

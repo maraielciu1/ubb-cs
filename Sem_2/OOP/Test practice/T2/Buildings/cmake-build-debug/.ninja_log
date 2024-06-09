@@ -1,0 +1,13 @@
+# ninja log v5
+1	606	1713797704157962883	CMakeFiles/buildings.dir/Building.cpp.o	89883df40b5dc241
+2	678	1713797704232241978	CMakeFiles/buildings.dir/UI.cpp.o	1655f0cde733465c
+2	736	1713797704292196527	CMakeFiles/buildings.dir/Service.cpp.o	1f3680d3e97ae9d9
+0	742	1713797704297901371	CMakeFiles/buildings.dir/main.cpp.o	f5c8a19908656747
+742	876	1713797704430021901	buildings	5fbe6eda1ce79e1a
+3	684	1713797785539429492	CMakeFiles/buildings.dir/Service.cpp.o	1f3680d3e97ae9d9
+3	686	1713797785539458075	CMakeFiles/buildings.dir/UI.cpp.o	1655f0cde733465c
+2	743	1713797785601469487	CMakeFiles/buildings.dir/main.cpp.o	f5c8a19908656747
+744	844	1713797785707063162	buildings	5fbe6eda1ce79e1a
+2	523	1713851062830342921	CMakeFiles/buildings.dir/UI.cpp.o	1655f0cde733465c
+1	576	1713851062884974078	CMakeFiles/buildings.dir/main.cpp.o	f5c8a19908656747
+576	669	1713851062978718367	buildings	5fbe6eda1ce79e1a

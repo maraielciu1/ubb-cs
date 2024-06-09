@@ -1,0 +1,5 @@
+C++|programming_language|blablabla
+America|continent|asdfghjk
+Java|programming_language|blablabla
+Jack_Sparrow|pirate|blablabla
+University|degree,higher education|blabalba
