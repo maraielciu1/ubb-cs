@@ -1,6 +1,6 @@
 # Welcome to Mara Ielciu's University Projects Repo! 🌟
 
-Hello there! 👋 I'm **Mara Ielciu**, a first-year student at **Babeș-Bolyai University**, studying **Computer Science** in English. I consider myself to be really smart and am passionate about exploring the depths of computer science and technology.
+Hello there! 👋 I'm **Mara Ielciu**, a second-year student at **Babeș-Bolyai University**, studying **Computer Science** in English. I consider myself to be really smart and am passionate about exploring the depths of computer science and technology.
 
 ## About This Repository
 
