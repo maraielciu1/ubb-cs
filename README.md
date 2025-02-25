@@ -23,6 +23,13 @@ Sem_2
 - `OS` : Operating Systems-> Labs, written projects in C, SHELL
 - `GA` : Graph Algorithms-> Labs, written projects in Python
 
+Sem_3
+- `APM`: Advanced Programming Methods-> Labs, written projects in Java-> Toy Language Interpreter
+- `CompNet`: Computer Networks-> Labs, written projects in Python and C, full project in Packet Tracer
+- `DB` : Data Bases-> Labs, written projects in SQL
+- `FLP` : Functional and Logical Programming-> Labs, written projects in Prolog and Lisp
+- `PS` : Probability and Statistics-> Labs, written projects in MathLab
+
 
 ## Languages and Tools
 
