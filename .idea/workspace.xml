@@ -12,10 +12,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94c83099-e53d-4050-8a7d-dd2f9adad20b" name="Changes" comment="sem2 done">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sem_2/GA/labwork/graph1m.txt" beforeDir="false" />
-    </list>
+    <list default="true" id="94c83099-e53d-4050-8a7d-dd2f9adad20b" name="Changes" comment="comp net updated" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,32 +57,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/maraielciu/Projects/ubb-cs&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/maraielciu/Projects/ubb-cs/Sem_3/CompNet",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Sem_3/CompNet" />
+      <recent name="$PROJECT_DIR$/Sem_3/CompNet/tcp_server" />
       <recent name="$PROJECT_DIR$/Sem_2/DS" />
       <recent name="$PROJECT_DIR$/Sem_2/Graphs/labwork" />
       <recent name="$PROJECT_DIR$/Sem_2/Graphs" />
-      <recent name="$PROJECT_DIR$/Sem_2/Operating Systems" />
-      <recent name="$PROJECT_DIR$/Sem_2/DSA" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Sem_2/OOP/Lab work" />
@@ -98,7 +96,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-50da183f06c8-2887949eec09-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.13135.95" />
+        <option value="bundled-python-sdk-c69650fc56ca-b11f5e8da5ad-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.15619.17" />
       </set>
     </attachedChunks>
   </component>
@@ -118,6 +116,7 @@
       <workItem from="1717919419137" duration="3738000" />
       <workItem from="1729022110992" duration="709000" />
       <workItem from="1730837435329" duration="627000" />
+      <workItem from="1740495357249" duration="999000" />
     </task>
     <task id="LOCAL-00001" summary="Updated lab work">
       <option name="closed" value="true" />
@@ -191,7 +190,23 @@
       <option name="project" value="LOCAL" />
       <updated>1717932917268</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="comp net updated">
+      <option name="closed" value="true" />
+      <created>1740496023434</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1740496023434</updated>
+    </task>
+    <task id="LOCAL-00011" summary="comp net updated">
+      <option name="closed" value="true" />
+      <created>1740496144312</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1740496144312</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,6 +221,7 @@
     <MESSAGE value="sem2 oop" />
     <MESSAGE value="sem2 os+Dsa" />
     <MESSAGE value="sem2 done" />
-    <option name="LAST_COMMIT_MESSAGE" value="sem2 done" />
+    <MESSAGE value="comp net updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="comp net updated" />
   </component>
 </project>
