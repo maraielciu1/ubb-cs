@@ -1,3 +1,0 @@
-/Users/maraielciu/comp_network/serv/cmake-build-debug/CMakeFiles/serv.dir
-/Users/maraielciu/comp_network/serv/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/maraielciu/comp_network/serv/cmake-build-debug/CMakeFiles/rebuild_cache.dir
