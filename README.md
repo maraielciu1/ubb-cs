@@ -23,13 +23,6 @@ Sem_2
 - `OS` : Operating Systems-> Labs, written projects in C, SHELL
 - `GA` : Graph Algorithms-> Labs, written projects in Python
 
-Sem_3
-- `APM`: Advanced Programming Methods-> Labs, written projects in Java-> Toy Language Interpreter
-- `FLP`: Functional and Logical Programming-> Labs, written projects in Prolog and Lisp
-- `CN` : Computer Networks-> Labs, written projects in Python, C and full project in PacketTracer
-- `DB` : Data Bases-> Labs, written projects in SQL
-- `PS` : Probability and Statistics-> Labs, written projects in Matlab
-
 
 ## Languages and Tools
 
@@ -38,7 +31,6 @@ The projects contained in this repository are primarily in:
 - Python 🐍
 - Assembly 😵‍💫
 - C/C++ ✅
-- Java
 - And potentially more as I explore new technologies and languages!
 
 ## How to Use
