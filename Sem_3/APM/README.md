@@ -1,4 +1,4 @@
-# [Advanced Programming Methods]
+# Advanced Programming Methods
 
 This project is developed as part of the **Advanced Programming Methods** course, focusing on advanced programming techniques such as design patterns, refactoring, testing, and debugging.
 
