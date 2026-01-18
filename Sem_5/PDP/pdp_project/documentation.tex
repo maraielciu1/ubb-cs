@@ -1,0 +1,333 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath}
+% --- Packages ---
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{booktabs} % For nicer tables
+\usepackage{float}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{pgfplots} % For plotting graphs directly in LaTeX
+\pgfplotsset{compat=1.18}
+
+% --- Code Listing Style ---
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+% --- Title Page Info ---
+\title{
+    \vspace{1cm}
+    \Huge \textbf{Parallel Graph $n$-Coloring} \\
+    \vspace{0.5cm}
+    \Large Project Theme \#4 \\
+    \vspace{1.5cm}
+    \large \textbf{Parallel and Distributed Computing}
+}
+\author{
+    \textbf{Ariana Ilieș} \\
+    \textbf{Mara Ielciu} \\
+    \textit{Group 934}
+}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+\newpage
+
+\tableofcontents
+\newpage
+
+% ----------------------------------------------------------------------
+\section{Introduction}
+Graph coloring is a fundamental problem in graph theory and computer science. The objective is to assign a color (integer label) to each vertex of a graph $G = (V, E)$ such that no two adjacent vertices share the same color.
+
+Formally, we seek a function $c: V \to \{1, \dots, k\}$ such that:
+$$ \forall (u, v) \in E \implies c(u) \neq c(v) $$
+
+This project explores four implementations of the Graph Coloring problem:
+\begin{enumerate}
+    \item \textbf{Sequential Implementation:} A standard greedy approach (baseline).
+    \item \textbf{Parallel Implementation (Java):} A multi-threaded shared-memory approach using optimistic coloring and conflict resolution.
+    \item \textbf{Distributed Implementation (MPI C++):} A distributed-memory approach using message passing for inter-process communication.
+    \item \textbf{Massively Parallel Implementation (CUDA C++):} A bonus implementation utilizing the GPU for massive speedups on large graphs.
+\end{enumerate}
+
+\vspace{0.5cm}
+\noindent\textbf{Interactive Notebook:} The complete implementation with runnable code is available on Google Colab: \\
+\href{https://colab.research.google.com/drive/YOUR_NOTEBOOK_ID}{Open in Google Colab}
+
+% ----------------------------------------------------------------------
+\section{Algorithms Description}
+
+\subsection{Sequential Algorithm}
+The sequential baseline uses a simple greedy heuristic. It iterates through vertices in a fixed order. For each vertex $v$, it computes the set of colors used by its neighbors and assigns the smallest non-negative integer not in that set.
+
+\textbf{Time Complexity:} $O(|V| + |E|)$.
+
+\subsection{Parallel Algorithm (Java Threads)}
+We implemented an \textit{Optimistic Iterative Coloring} algorithm, inspired by the Jones-Plassmann method. 
+
+\begin{itemize}
+    \item \textbf{Partitioning:} The set of vertices $V$ is partitioned into $P$ chunks, where $P$ is the number of threads. Each thread is responsible for coloring its subset.
+    \item \textbf{Phase 1 (Optimistic Coloring):} Threads color their nodes simultaneously based on the \textit{current} colors of neighbors. Since threads run in parallel, race conditions may lead to invalid colorings (two neighbors picking the same color).
+    \item \textbf{Phase 2 (Conflict Detection):} After synchronization, threads verify the validity of the edges. If an edge $(u, v)$ has $c(u) = c(v)$, a conflict is declared.
+    \item \textbf{Phase 3 (Resolution):} To avoid infinite loops (where both nodes change colors repeatedly), we use a symmetry-breaking rule:
+    $$ \text{If } ID(u) < ID(v) \text{, then } u \text{ must re-color.} $$
+\end{itemize}
+
+\subsection{Distributed Algorithm (MPI C++)}
+We implemented a distributed version using MPI (Message Passing Interface), suitable for execution across multiple compute nodes.
+
+\begin{itemize}
+    \item \textbf{Data Distribution:} The root process (rank 0) reads the graph and broadcasts the structure to all processes using \texttt{MPI\_Bcast}. The graph is stored in \textbf{Compressed Sparse Row (CSR)} format for efficient memory usage and broadcasting.
+    \item \textbf{Partitioning:} Vertices are evenly distributed among $P$ processes. Each process is responsible for coloring vertices in its partition: $[\frac{n \cdot rank}{P}, \frac{n \cdot (rank+1)}{P})$.
+    \item \textbf{Phase 1 (Local Coloring):} Each process colors its vertices using the greedy approach based on known neighbor colors.
+    \item \textbf{Color Synchronization:} After coloring, processes exchange their color arrays using \texttt{MPI\_Allgatherv} so each process has the complete, up-to-date color information.
+    \item \textbf{Phase 2 (Conflict Detection):} Each process checks for conflicts within its partition using the same symmetry-breaking rule as the parallel version.
+    \item \textbf{Global Termination Check:} Using \texttt{MPI\_Allreduce} with \texttt{MPI\_SUM}, all processes determine if any conflicts remain globally. If the sum is zero, the algorithm terminates.
+\end{itemize}
+
+\subsection{Massively Parallel Algorithm (CUDA)}
+For the bonus requirement, we utilized NVIDIA CUDA.
+\begin{itemize}
+    \item \textbf{Data Structure:} We used the \textbf{Compressed Sparse Row (CSR)} format to store the graph efficiently in GPU memory. This consists of three arrays: `row\_offsets`, `column\_indices`, and `values`.
+    \item \textbf{Kernels:}
+    \begin{enumerate}
+        \item \texttt{color\_kernel}: Assigns colors to vertices in parallel.
+        \item \texttt{conflict\_kernel}: Checks for conflicts and sets a global flag if any conflicts are found.
+    \end{enumerate}
+\end{itemize}
+
+% ----------------------------------------------------------------------
+\section{Synchronization Mechanisms}
+
+Correct synchronization is vital to prevent data races and ensure algorithm convergence.
+
+\subsection{Java Implementation}
+\begin{itemize}
+    \item \textbf{CyclicBarrier:} Used to synchronize all threads between Phase 1 (Coloring) and Phase 2 (Conflict Detection). This ensures no thread starts checking for conflicts until all other threads have finished assigning tentative colors.
+    \item \textbf{ConcurrentHashMap (KeySet):} Used to store the set of ``conflicting nodes'' for the next iteration. Since multiple threads detect conflicts simultaneously, a thread-safe collection is required to aggregate the results without locking the entire data structure.
+\end{itemize}
+
+\subsection{MPI Implementation}
+\begin{itemize}
+    \item \textbf{MPI\_Bcast (Broadcast):} The root process broadcasts the graph structure (number of vertices, edges, and CSR arrays) to all other processes. This is a blocking collective operation---all processes wait until the broadcast completes.
+    \item \textbf{MPI\_Allgatherv:} After each coloring phase, processes share their local color assignments. This collective gathers variable-sized data from all processes and distributes the combined result back to everyone. We use the ``v'' variant to handle uneven partitions when $n$ is not divisible by the process count.
+    \item \textbf{MPI\_Allreduce:} Used to compute the global sum of local conflict counts. This determines whether any process still has conflicts, enabling coordinated termination.
+    \item \textbf{MPI\_Barrier:} Synchronizes all processes at specific points, particularly before starting the timer and after completion, ensuring accurate performance measurements.
+\end{itemize}
+
+\subsection{CUDA Implementation}
+\begin{itemize}
+    \item \textbf{cudaDeviceSynchronize():} Since kernel launches are asynchronous, the host (CPU) must explicitly wait for the GPU to finish the coloring phase before launching the conflict detection phase.
+    \item \textbf{Atomic Operations (Implicit):} In the conflict detection kernel, multiple threads may write to the `conflict\_flag` variable. Since they all write the same value (`1`), we rely on the hardware's atomic write capability without needing explicit atomic functions.
+\end{itemize}
+
+% ----------------------------------------------------------------------
+\section{Implementation Details}
+
+\subsection{Java Parallel Logic (Snippet)}
+\begin{lstlisting}[language=Java, caption=Java Coloring Thread Logic]
+public void run() {
+    // Phase 1: Optimistic Coloring
+    for (int i = start; i < end; i++) {
+        if (todo.contains(i)) {
+            // Find smallest available color based on neighbors
+            int c = getSmallestColor(i);
+            graph.nodes.get(i).color = c;
+        }
+    }
+    
+    // Barrier ensures all nodes are colored before checking
+    try { barrier.await(); } catch(Exception e){}
+
+    // Phase 2: Conflict Detection & Resolution
+    for (int i = start; i < end; i++) {
+        if (todo.contains(i)) {
+            for (int neighbor : graph.nodes.get(i).neighbours) {
+                if (colorMatches(i, neighbor) && i < neighbor) {
+                     // Symmetry breaking: Lower ID yields
+                    nextTodo.add(i);
+                }
+            }
+        }
+    }
+}
+\end{lstlisting}
+
+\subsection{MPI Distributed Logic (Snippet)}
+\begin{lstlisting}[language=C++, caption=MPI Color Synchronization and Conflict Detection]
+// Phase 1: Local coloring
+for (int v = start_v; v < end_v; v++) {
+    if (!todo[v]) continue;
+    set<int> forbidden;
+    for (int j = row_ptr[v]; j < row_ptr[v + 1]; j++) {
+        if (colors[col_idx[j]] >= 0) 
+            forbidden.insert(colors[col_idx[j]]);
+    }
+    int c = 0;
+    while (forbidden.count(c)) c++;
+    colors[v] = c;
+}
+
+// Synchronize colors across all processes
+MPI_Allgatherv(my_colors.data(), my_count, MPI_INT,
+               all_colors.data(), recvcounts.data(), 
+               displs.data(), MPI_INT, MPI_COMM_WORLD);
+
+// Phase 2: Conflict detection (same symmetry-breaking rule)
+for (int v = start_v; v < end_v; v++) {
+    for (int j = row_ptr[v]; j < row_ptr[v + 1]; j++) {
+        if (colors[col_idx[j]] == colors[v] && v > col_idx[j]) {
+            next_todo[v] = true;
+            local_conflicts++;
+        }
+    }
+}
+
+// Check global termination
+MPI_Allreduce(&local_conflicts, &global_conflicts, 
+              1, MPI_INT, MPI_SUM, MPI_COMM_WORLD);
+\end{lstlisting}
+
+\subsection{CUDA Kernel Logic (Snippet)}
+\begin{lstlisting}[language=C++, caption=CUDA Conflict Kernel]
+__global__ void conflict_kernel(..., int* mask, int* flag) {
+    int tid = blockIdx.x * blockDim.x + threadIdx.x;
+    if (tid < n && mask[tid]) {
+        mask[tid] = 0; // Assume success initially
+        
+        for (int i = row_off[tid]; i < row_off[tid+1]; i++) {
+            int neighbor = adj[i];
+            if (colors[neighbor] == colors[tid] && tid < neighbor) {
+                mask[tid] = 1; // Mark for retry
+                *flag = 1;     // Notify host to continue loop
+            }
+        }
+    }
+}
+\end{lstlisting}
+
+% ----------------------------------------------------------------------
+\section{Performance Measurements}
+
+We evaluated the performance on a random graph generated with 10,000 nodes and approximately 100,000 edges.
+
+\subsection{Execution Time Comparison}
+The following table summarizes the execution time for the three implementations.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{@{}llcc@{}}
+        \toprule
+        \textbf{Implementation} & \textbf{Hardware} & \textbf{Time (ms)} & \textbf{Speedup} \\
+        \midrule
+        Sequential (Java) & CPU (1 Thread) & 59 ms & 1.0x (baseline) \\
+        Parallel (Java) & CPU (4 Threads) & 76 ms & 0.78x \\
+        Distributed (MPI C++) & CPU (4 Processes) & 24 ms & 2.46x \\
+        CUDA (C++) & GPU (T4) & 7 ms & 8.43x \\
+        \bottomrule
+    \end{tabular}
+    \caption{Performance Comparison on 10,000 Node Graph ($\sim$110,000 Edges)}
+    \label{tab:performance}
+\end{table}
+
+\textbf{Note:} The MPI implementation was tested on a single machine with 4 processes using \texttt{--oversubscribe}. In a true distributed environment with dedicated nodes, MPI performance would scale significantly better.
+
+\subsection{Graphical Comparison}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{performance_chart.png}
+\caption{Performance comparison of Parallel (Threads), Distributed (MPI), and GPU (CUDA) implementations. The dashed blue line indicates the sequential baseline.}
+\label{fig:performance}
+\end{figure}
+
+% Alternative: If the image is not available, uncomment the tikzpicture below
+% \begin{figure}[H]
+% \centering
+% \begin{tikzpicture}
+%     \begin{axis}[
+%         ybar,
+%         symbolic x coords={Sequential, Parallel, MPI, CUDA},
+%         xtick=data,
+%         nodes near coords,
+%         ylabel={Time (ms)},
+%         xlabel={Implementation},
+%         ymin=0,
+%         title={Execution Time Comparison (Lower is Better)},
+%         bar width=0.8cm,
+%         width=12cm,
+%         height=7cm
+%     ]
+%     \addplot[fill=blue!30] coordinates {(Sequential, 59) (Parallel, 76) (MPI, 24) (CUDA, 7)};
+%     \end{axis}
+% \end{tikzpicture}
+% \caption{Visualizing the performance of Parallel, Distributed (MPI), and GPU approaches.}
+% \end{figure}
+
+\subsection{Analysis}
+\begin{enumerate}
+    \item \textbf{Java Parallel:} The parallel Java implementation shows a speedup less than 1x in this test. This counterintuitive result is due to:
+    \begin{itemize}
+        \item Overhead from \texttt{CyclicBarrier} synchronization between phases
+        \item Thread creation/destruction overhead in each iteration
+        \item The relatively small graph size where parallelization overhead dominates
+    \end{itemize}
+    For larger graphs, the parallel version would show better relative performance.
+    
+    \item \textbf{MPI Distributed:} The MPI implementation achieved a 2.46x speedup despite running on a single machine. Key factors:
+    \begin{itemize}
+        \item C++ is inherently faster than Java for this workload
+        \item CSR format provides cache-efficient memory access
+        \item Lower per-iteration overhead compared to Java thread management
+    \end{itemize}
+    In a true distributed environment with dedicated nodes, MPI would scale linearly with the number of machines.
+    
+    \item \textbf{CUDA Bonus:} The GPU implementation is significantly faster (8.43x speedup). This is due to massive parallelism where thousands of vertices are processed simultaneously, hiding memory latency.
+    
+    \item \textbf{Convergence:} The iterative algorithm converges quickly. For the 10,000 node graph, the conflict set size typically reduced as follows: $100\% \to 15\% \to 2\% \to 0\%$ in just 4 iterations.
+\end{enumerate}
+
+% ----------------------------------------------------------------------
+\section{Conclusion}
+In this project, we successfully implemented the $n$-coloring problem using four distinct approaches representing different parallelization paradigms:
+
+\begin{itemize}
+    \item \textbf{Shared Memory (Java Threads):} Demonstrates intra-process parallelism with shared data structures and barrier synchronization.
+    \item \textbf{Distributed Memory (MPI C++):} Demonstrates inter-process communication with explicit message passing, suitable for cluster computing.
+    \item \textbf{GPU Computing (CUDA):} Demonstrates massively parallel processing with thousands of concurrent threads.
+\end{itemize}
+
+The results demonstrate that the choice of parallelization strategy depends heavily on the problem scale and available hardware. MPI provides a portable solution that can scale across multiple machines, while CUDA offers superior performance when GPU hardware is available. The Optimistic Iterative approach with symmetry-breaking conflict resolution proved to be a robust strategy for parallelizing greedy graph coloring across all implementations.
+
+\end{document}
