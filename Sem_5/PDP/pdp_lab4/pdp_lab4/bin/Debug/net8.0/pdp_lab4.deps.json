@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "pdp_lab4/1.0.0": {
+        "runtime": {
+          "pdp_lab4.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "pdp_lab4/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

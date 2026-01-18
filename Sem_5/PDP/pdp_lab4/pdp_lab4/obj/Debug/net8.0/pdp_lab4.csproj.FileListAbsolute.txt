@@ -1,0 +1,14 @@
+/Users/maraielciu/Desktop/cs anul 3/pdp/pdp_lab4/pdp_lab4/bin/Debug/net8.0/pdp_lab4
+/Users/maraielciu/Desktop/cs anul 3/pdp/pdp_lab4/pdp_lab4/bin/Debug/net8.0/pdp_lab4.deps.json
+/Users/maraielciu/Desktop/cs anul 3/pdp/pdp_lab4/pdp_lab4/bin/Debug/net8.0/pdp_lab4.runtimeconfig.json
+/Users/maraielciu/Desktop/cs anul 3/pdp/pdp_lab4/pdp_lab4/bin/Debug/net8.0/pdp_lab4.dll
+/Users/maraielciu/Desktop/cs anul 3/pdp/pdp_lab4/pdp_lab4/bin/Debug/net8.0/pdp_lab4.pdb
+/Users/maraielciu/Desktop/cs anul 3/pdp/pdp_lab4/pdp_lab4/obj/Debug/net8.0/pdp_lab4.GeneratedMSBuildEditorConfig.editorconfig
+/Users/maraielciu/Desktop/cs anul 3/pdp/pdp_lab4/pdp_lab4/obj/Debug/net8.0/pdp_lab4.AssemblyInfoInputs.cache
+/Users/maraielciu/Desktop/cs anul 3/pdp/pdp_lab4/pdp_lab4/obj/Debug/net8.0/pdp_lab4.AssemblyInfo.cs
+/Users/maraielciu/Desktop/cs anul 3/pdp/pdp_lab4/pdp_lab4/obj/Debug/net8.0/pdp_lab4.csproj.CoreCompileInputs.cache
+/Users/maraielciu/Desktop/cs anul 3/pdp/pdp_lab4/pdp_lab4/obj/Debug/net8.0/pdp_lab4.dll
+/Users/maraielciu/Desktop/cs anul 3/pdp/pdp_lab4/pdp_lab4/obj/Debug/net8.0/refint/pdp_lab4.dll
+/Users/maraielciu/Desktop/cs anul 3/pdp/pdp_lab4/pdp_lab4/obj/Debug/net8.0/pdp_lab4.pdb
+/Users/maraielciu/Desktop/cs anul 3/pdp/pdp_lab4/pdp_lab4/obj/Debug/net8.0/pdp_lab4.genruntimeconfig.cache
+/Users/maraielciu/Desktop/cs anul 3/pdp/pdp_lab4/pdp_lab4/obj/Debug/net8.0/ref/pdp_lab4.dll
