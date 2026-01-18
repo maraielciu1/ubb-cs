@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            width: 85%;
+            height: 90vh;
+        }
+
+        .left {
+            width: 22.2%;
+            margin-right: 0;
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .left .img1 {
+            height: 46px;
+            padding-left: 18px;
+            padding-top: 6px;
+            padding-bottom: 2px;
+            display: block;
+        }
+
+        .left .second-container {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            padding-left: 22px;
+            padding-top: 6px;
+            padding-bottom: 7px;
+        }
+
+        .left .img2 {
+            padding-top: 1px;
+            height: 55px;
+            margin-right: 10px;
+        }
+
+        .left .text {
+            font-size: 20px;
+            color: white;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .middle {
+            width: 46.6%;
+            margin: 0;
+            border-left: 1px solid rgb(52, 54, 57);
+            border-right: 1px solid rgb(52, 54, 57);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .middle-grey {
+            width: 100%;
+            background-color: rgb(52, 54, 57);
+            height: 200px;
+        }
+
+        .middle-profile {
+            width: 100%;
+            height: 53px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .middle-profile img {
+            height: 48px;
+            padding-left: 0.5px;
+        }
+
+        .middle-profile .text {
+            font-size: 20px;
+            color: white;
+            font-weight: bold;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: -73px;
+            padding-left: 16px;
+            gap: 15px;
+        }
+
+        .profile-circle {
+            width: 134px;
+            height: 134px;
+            border-radius: 50%;
+            background-color: rgb(22, 24, 28);
+            border: 4px solid black;
+            display: block;
+        }
+
+        .middle-username {
+            font-size: 21px;
+            font-weight: bold;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color: white;
+            margin-left: 3px;
+            display: inline;
+        }
+
+        .middle-account {
+            width: 100%;
+            margin-top: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding-left: 120px;
+        }
+
+        .middle-account .text1 {
+            padding-top: 75px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-weight: 1000;
+            font-size: 32px;
+            align-self: flex-start;
+            color: white;
+        }
+
+        .middle-account .text2 {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 300;
+            align-self: flex-start;
+            color: rgb(89, 93, 97);
+        }
+
+        .middle-account .text2 a:link {
+            color: #1DA1F2;
+            text-decoration: none;
+        }
+
+        .middle-account .text2 a:visited {
+            color: #1DA1F2;
+            text-decoration: none;
+        }
+
+        .middle-account .text2 a:active {
+            color: #1DA1F2;
+            text-decoration: none;
+        }
+
+        .middle-account .text2 a:hover {
+            color: #1DA1F2;
+            text-decoration: underline;
+        }
+
+        .right {
+            width: 31.2%;
+            margin-left: 0;
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .right-card {
+            background-color: black;
+            border: 1px solid rgb(47, 51, 54);
+            border-radius: 15px;
+            padding: 13px;
+            margin-left: 30px;
+            margin-right: 20px;
+            margin-top: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .right-title {
+            font-size: 20px;
+            font-weight: 700;
+            padding-left: 3px;
+        }
+
+        .right-subtitle {
+            margin-top: 5px;
+            margin-left: -1px;
+            font-size: 13.5px;
+            color: rgb(89, 93, 97);
+            margin-bottom: 8px;
+            line-height: 0.75;
+        }
+
+        .connect-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+            font-size: 15px;
+            font-weight: 600;
+            background-color: white;
+            color: black;
+            padding: 9px 11px;
+            margin-right: 20px;
+            border-radius: 9999px;
+            cursor: pointer;
+        }
+
+        .connect-btn :hover {
+            background-color: darkgrey;
+        }
+
+        .connect-btn .google {
+            font-weight: normal;
+        }
+
+        .connect-btn .google :hover {
+            background-color: darkgrey;
+        }
+
+        .connect-btn img {
+            width: 21px;
+            height: 21px;
+            margin-right: 5px;
+        }
+
+        .create {
+            background-color: white;
+        }
+
+        .legal-text {
+            font-size: 13px;
+            color: rgb(122, 127, 132);
+            margin-top: 5px;
+            line-height: 1.4;
+            margin-bottom: 1px;
+        }
+
+        .legal-text a:link {
+            color: #1DA1F2;
+            text-decoration: none;
+        }
+
+        .legal-text a:active {
+            color: #1DA1F2;
+            text-decoration: none;
+        }
+
+        .legal-text a:visited {
+            color: #1DA1F2;
+            text-decoration: none;
+        }
+
+        .legal-text a:hover {
+            color: #1DA1F2;
+            text-decoration: underline;
+        }
+
+
+        .legal-text a :hover {
+            text-decoration: underline;
+        }
+
+        .right-footer a:active {
+            color: rgb(122, 127, 132);
+            text-decoration: none;
+        }
+
+        .right-footer a:visited {
+            color: rgb(122, 127, 132);
+            text-decoration: none;
+        }
+
+        .error-box {
+            background-color: black;
+            border: 1px solid rgb(47, 51, 54);
+            color: rgb(122, 127, 132);
+            border-radius: 16px;
+            margin-left: 30px;
+            margin-right: 20px;
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 5px;
+            padding-bottom: 20px;
+            font-size: 15.5px;
+        }
+
+        .retry-btn {
+            background-color: #1DA1F2;
+            color: white;
+            font-weight: bold;
+            display: flex;
+            gap: 3px;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            border: none;
+            padding: 6px 16px;
+            border-radius: 9999px;
+            cursor: pointer;
+        }
+
+        .retry-btn:hover {
+            background-color: darkblue;
+        }
+
+        .retry-btn img {
+            width: 23px;
+            height: 23px;
+        }
+
+        .right-footer {
+            font-size: 13.5px;
+            color: rgb(122, 127, 132);
+            margin-left: 50px;
+            margin-right: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            line-height: 1;
+        }
+
+        .right-footer a:link {
+            color: rgb(122, 127, 132);
+            text-decoration: none;
+        }
+
+        .right-footer a:hover {
+            color: rgb(122, 127, 132);
+            text-decoration: underline;
+        }
+
+
+        .footer {
+            width: 100%;
+            padding: 15px;
+            background: #1DA1F2;
+            color: white;
+            position: fixed;
+            height: 52px;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 3px;
+            padding: 10px 30px;
+            padding-left: 132px;
+        }
+
+        .footer .texts {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            padding-right: 530px;
+            padding-top: 2px;
+        }
+
+        .footer .texts .text1 {
+            font-weight: 1000;
+            font-size: 24px;
+            align-self: flex-start;
+        }
+
+        .footer .texts .text2 {
+            font-size: 16px;
+            align-self: flex-start;
+        }
+
+
+        .footer .buttons {
+            background: transparent;
+            color: white;
+            border: 0.2px solid rgb(217, 215, 215);
+            padding: 9px 15px;
+            margin: 5px;
+            border-radius: 9999px;
+            font-size: 15px;
+            font-weight: bold;
+            align-content: center;
+        }
+
+        .footer .signup-btn {
+            background: white;
+            color: black;
+            border: 0.2px solid white;
+            padding: 9px 16px;
+            margin: 5px;
+            border-radius: 20px;
+            font-size: 15px;
+            font-weight: bold;
+            align-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left">
+            <img src="Xicon.png" alt="X icon" class="img1">
+            <div class="second-container">
+                <img src="settingsIcon.png" alt="settings-icon" class="img2">
+                <div class="text">Settings</div>
+            </div>
+        </div>
+        <div class="middle">
+            <div class="middle-profile">
+                <img src="arrow.png" alt="arrow">
+                <span class="text">Profile</span>
+            </div>
+            <div class="middle-grey"></div>
+            <div class="profile-container">
+                <div class="profile-circle"></div>
+                <div class="middle-username">@twitter</div>
+            </div>
+            <div class="middle-account">
+                <div class="text1">Account suspended</div>
+                <div class="text2">X suspends accounts which violate the <a href="#" style="color: #1DA1F2; ">X
+                        Rules </a></div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="right-card">
+                <div class="right-title">New to X?</div>
+                <div class="right-subtitle">Sign up now to get your own personalized timeline!</div>
+
+                <button class="connect-btn" style="font-weight: normal;">
+                    <img src="google.png" alt="Google"> Sign up with Google
+                </button>
+                <button class="connect-btn">
+                    <img src="apple.png" alt="Apple"> Sign up with Apple
+                </button>
+                <button class="connect-btn create">Create account</button>
+
+                <p class="legal-text">
+                    By signing up, you agree to the
+                    <a href="#">Terms of Service</a> and
+                    <a href="#">Privacy Policy</a>, including
+                    <a href="#">Cookie Use</a>.
+                </p>
+            </div>
+
+            <div class="error-box">
+                <p>Something went wrong. Try reloading.</p>
+                <button class="retry-btn">
+                    <img src="retry.png" alt="0">Retry</button>
+            </div>
+
+            <div class="right-footer">
+                <a href="#">Terms of Service</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Cookie Policy</a>
+                <a href="#">Accessibility</a>
+                <a href="#">Ads info</a>
+                <a href="#">More...</a>
+                <a href="#">© 2025 X Corp.</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="footer">
+        <div class="texts">
+            <div class="text1">Don't miss what's happening</div>
+            <div class="text2">People on X are the first to know</div>
+        </div>
+        <div class="buttons">Log in</div>
+        <div class="signup-btn">Sign up</div>
+    </div>
+</body>
+
+</html>

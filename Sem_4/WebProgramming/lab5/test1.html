@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Dialog Box</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #openDialog {
+            margin: 20px;
+            padding: 10px 20px;
+        }
+
+        .dialog-box {
+            display: none;
+            position: absolute;
+            width: 300px;
+            height: 200px;
+            border: 3px solid blue;
+            background-color: azure;
+        }
+
+        .dialog-header {
+            background-color: blue;
+            color: azure;
+            position: relative;
+            padding: 10px;
+            cursor: move;
+        }
+
+        .dialog-close-button {
+            cursor: pointer;
+            position: absolute;
+            top: 2px;
+            right: 10px;
+            font-weight: bold;
+        }
+
+        .resizer {
+            width: 10px;
+            height: 10px;
+            background: #ccc;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            cursor: se-resize;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="openDialog">Open Dialog box</button>
+
+    <div class="dialog-box" id="myDialogBox">
+        <div class="dialog-header">
+            Dialog Box Info
+            <span class="dialog-close-button" id="closeButton">X</span>
+        </div>
+        <p style="padding: 10px;">Hellooooooo</p>
+        <div class="resizer"></div>
+    </div>
+
+    <script>
+        $(function () {
+            const $dialog = $('#myDialogBox');
+            const $header = $dialog.find('.dialog-header');
+            const $resizer = $dialog.find('.resizer');
+
+            $('#openDialog').click(function () {
+                const windowWidth = $(window).width();
+                const rightStart = windowWidth - 320; // Slight padding from right edge
+                $dialog.css({ top: '100px', left: rightStart + 'px' }).fadeIn();
+            });
+
+            $('#closeButton').click(function () {
+                $dialog.fadeOut();
+            });
+
+            let isDragged = false;
+            let offset = { x: 0, y: 0 };
+
+            $header.on('mousedown', function (e) {
+                const dialogLeft = $dialog.offset().left;
+                const windowWidth = $(window).width();
+
+                if (dialogLeft >= windowWidth / 2) {
+                    isDragged = true;
+                    offset.x = e.pageX - dialogLeft;
+                    offset.y = e.pageY - $dialog.offset().top;
+                }
+            });
+
+            $(document).on('mousemove', function (e) {
+                if (isDragged) {
+                    const windowWidth = $(window).width();
+                    const windowHeight = $(window).height();
+                    const dialogWidth = $dialog.outerWidth();
+                    const dialogHeight = $dialog.outerHeight();
+
+                    let left = e.pageX - offset.x;
+                    let top = e.pageY - offset.y;
+
+                    // Clamp to the right half only
+                    const minLeft = windowWidth / 2;
+                    const maxLeft = windowWidth - dialogWidth;
+
+                    left = Math.max(minLeft, Math.min(maxLeft, left));
+                    top = Math.max(0, Math.min(windowHeight - dialogHeight, top));
+
+                    $dialog.css({
+                        top: top + 'px',
+                        left: left + 'px'
+                    });
+                }
+            }).on('mouseup', function () {
+                isDragged = false;
+            });
+
+            let isResized = false;
+            let startX, startY, startWidth, startHeight;
+
+            $resizer.on('mousedown', function (e) {
+                e.preventDefault();
+                isResized = true;
+                startX = e.clientX;
+                startY = e.clientY;
+                startWidth = $dialog.width();
+                startHeight = $dialog.height();
+            });
+
+            $(document).on('mousemove', function (e) {
+                if (isResized) {
+                    const newWidth = startWidth + (e.clientX - startX);
+                    const newHeight = startHeight + (e.clientY - startY);
+
+                    $dialog.css({
+                        width: newWidth + 'px',
+                        height: newHeight + 'px'
+                    });
+                }
+            }).on('mouseup', function () {
+                isResized = false;
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Squares</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+            background-color: #222;
+        }
+
+        .container {
+            position: absolute;
+            width: 0vw;
+            height: 90vh;
+        }
+
+        .square {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 70%;
+        }
+
+        .bottom {
+            bottom: 0;
+            background-color: red;
+            animation: moveLeft 5s infinite ease-in-out;
+        }
+
+        .top {
+            top: 0;
+            background-color: blue;
+            animation: moveRight 5s infinite ease-in-out;
+        }
+
+        @keyframes moveLeft {
+            0% {
+                top: 100%;
+                transform: scale(1) rotate(0deg);
+                background-color: red;
+            }
+
+            45% {
+                top: 55%;
+                transform: scale(1) rotate(0deg);
+                background-color: red;
+            }
+
+            50% {
+                top: 50%;
+                transform: scale(2) rotate(180deg);
+                background-color: yellow;
+            }
+
+            55% {
+                top: 55%;
+                transform: scale(1) rotate(0deg);
+                background-color: red;
+            }
+
+            100% {
+                top: 100%;
+                transform: scale(1) rotate(0deg);
+                background-color: red;
+            }
+        }
+
+        @keyframes moveRight {
+            0% {
+                top: 0;
+                transform: scale(1) rotate(0deg);
+                background-color: blue;
+            }
+
+            45% {
+                top: 45%;
+                transform: scale(1) rotate(0deg);
+                background-color: blue;
+            }
+
+            50% {
+                top: 50%;
+                transform: scale(2) rotate(-180deg);
+                background-color: yellow;
+            }
+
+            55% {
+                top: 45%;
+                transform: scale(1) rotate(0deg);
+                background-color: blue;
+            }
+
+            100% {
+                top: 0;
+                transform: scale(1) rotate(0deg);
+                background-color: blue;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="square bottom"></div>
+        <div class="square top"></div>
+    </div>
+
+</body>
+
+</html>

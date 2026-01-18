@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Dialog Box</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #openDialog {
+            margin: 20px;
+            padding: 10px 20px;
+        }
+
+        .dialog-box {
+            display: none;
+            position: absolute;
+            width: 300px;
+            height: 200px;
+            border: 3px;
+            border-color: blue;
+            background-color: azure;
+        }
+
+        .dialog-header {
+            background-color: blue;
+            color: azure;
+            position: relative;
+        }
+
+        .dialog-content {
+            position: relative;
+            background-color: white;
+        }
+
+        .dialog-content-save {
+            cursor: pointer;
+            position: absolute;
+            top: 30px;
+            right: 10px;
+            font-weight: bold;
+        }
+
+        .dialog-close-button {
+            cursor: pointer;
+            position: absolute;
+            top: 2px;
+            right: 10px;
+            font-weight: bold;
+        }
+
+        .resizer {
+            width: 10px;
+            height: 10px;
+            background: #ccc;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            cursor: se-resize;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="openDialog">Open Dialog box</button>
+    <div class="dialog-box" id="myDialogBox">
+        <div class="dialog-header"> Dialog Box Info
+            <span class="dialog-close-button" id="closeButton">X</span>
+        </div>
+        <p>Hellooooooo</p>
+        <div class="dialog-content" id="dialogContent">
+            <input type="text" name="dialogText" id="diagTextID">
+            <button id="rememberer" onclick='myfunction1()'>remember text</button>
+            <button id="recaller" onclick='myfunction2()'>recall text </button>
+            <p id="recalledtext">Loading</p>
+        </div>
+        <div class="resizer">
+
+        </div>
+    </div>
+
+    <script>
+        function myfunction1() {
+
+            texttosave = document.getElementById('diagTextID').value;
+            localStorage.setItem('myText', texttosave);
+
+        }
+
+        function myfunction2() {
+
+            document.getElementById('recalledtext').innerHTML = localStorage.getItem('myText');
+
+        }
+        $(function () {
+            const $dialog = $('#myDialogBox');
+            const $header = $dialog.find('.dialog-header');
+            const $resizer = $dialog.find('.resizer');
+            const $content = $dialog.find('.dialog-content');
+
+            $('#openDialog').click(function () {
+                $dialog.css({ top: '100px', left: '100px' }).fadeIn();
+            })
+            $('#closeButton').click(function () {
+                $dialog.fadeOut();
+            })
+
+            // $('#saveButton').click(function () {
+            //     const value = localStorage.getItem('myKey');
+
+            //     document.getElementById('diagTextID').value = value;
+            // })
+
+            let isDragged = false;
+            let offset = { x: 0, y: 0 };
+
+            $header.on('mousedown', function (e) {
+                isDragged = true;
+                offset.x = e.pageX - $dialog.offset().left;
+                offset.y = e.pageY - $dialog.offset().top;
+            })
+
+            $(document).on('mousemove', function (e) {
+                if (isDragged) {
+                    $dialog.css({
+                        top: e.pageY - offset.y,
+                        left: e.pageX - offset.x
+                    })
+                }
+            }).on('mouseup', function () {
+                isDragged = false
+            })
+
+            let isResized = false;
+            let startX, startY, startWidth, startHeight;
+
+            $resizer.on('mousedown', function (e) {
+                e.preventDefault();
+                isResized = true;
+                startX = e.clientX;
+                startY = e.clientY;
+                startWidth = $dialog.width();
+                startHeight = $dialog.height();
+            })
+
+            $(document).on('mousemove', function (e) {
+                if (isResized) {
+                    $dialog.css({
+                        width: startWidth + (e.clientX - startX),
+                        height: startHeight + (e.clientY - startY)
+                    })
+                }
+            }).on('mouseup', function () {
+                isResized = false;
+            })
+        })
+    </script>
+</body>
