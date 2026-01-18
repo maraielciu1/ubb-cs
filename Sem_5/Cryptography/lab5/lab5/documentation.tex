@@ -1,0 +1,230 @@
+\documentclass[12pt,a4paper]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{listings}
+
+% Page geometry
+\geometry{margin=1in}
+
+% Title
+\title{
+    \vspace{-1cm}
+    \textbf{Cramer-Shoup Cryptosystem}\\[0.5cm]
+    \large Public Key Cryptography Laboratory\\
+    Lab 5 Documentation
+}
+\author{Cryptography Course}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This document describes the Cramer-Shoup cryptosystem implementation, a public-key 
+encryption scheme with IND-CCA2 security. The implementation uses a 27-character 
+alphabet and includes key generation, encryption with plaintext validation, and 
+decryption with ciphertext validation.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+%==============================================================================
+\section{Introduction}
+%==============================================================================
+
+The Cramer-Shoup cryptosystem, introduced by Cramer and Shoup in 1998, was the 
+first practical public-key encryption scheme proven secure against adaptive 
+chosen-ciphertext attacks (IND-CCA2) under standard cryptographic assumptions.
+
+The cryptosystem extends ElGamal by adding a verification mechanism that prevents 
+ciphertext malleability, achieving CCA2 security based on the Decisional 
+Diffie-Hellman (DDH) assumption and collision-resistant hash functions.
+
+%==============================================================================
+\section{Project Features}
+%==============================================================================
+
+\subsection{Setting: 27-Character Alphabet}
+
+\textbf{(i) Alphabet Configuration}
+
+The system uses a 27-character alphabet:
+\begin{itemize}
+    \item Space encoded as 0
+    \item Letters A-Z encoded as 1-26
+\end{itemize}
+
+Plaintext is converted to an integer using base-27 encoding:
+\begin{equation}
+m = \sum_{i=0}^{n-1} c_i \cdot 27^{n-1-i}
+\end{equation}
+
+where $c_i$ is the numeric value of the $i$-th character.
+
+\subsection{Key Generation}
+
+\textbf{(ii) Public and Private Key Generation}
+
+The system generates keys with randomly selected values in the required intervals:
+
+\begin{enumerate}
+    \item Generate safe prime $p = 2q + 1$ where $q$ is also prime
+    \item Select two independent generators $g_1, g_2$ of the subgroup of order $q$
+    \item Randomly select private exponents $x_1, x_2, y_1, y_2, z \in [1, q-1]$
+    \item Compute public values:
+    \begin{align}
+        c &= g_1^{x_1} \cdot g_2^{x_2} \pmod{p} \\
+        d &= g_1^{y_1} \cdot g_2^{y_2} \pmod{p} \\
+        h &= g_1^{z} \pmod{p}
+    \end{align}
+\end{enumerate}
+
+\textbf{Public Key:} $(p, q, g_1, g_2, c, d, h)$
+
+\textbf{Private Key:} $(x_1, x_2, y_1, y_2, z)$
+
+\subsection{Encryption with Plaintext Validation}
+
+\textbf{(iii) Encryption Using Public Key}
+
+\textbf{Plaintext validation} checks:
+\begin{itemize}
+    \item Plaintext is non-empty
+    \item Each character is space or A-Z (case insensitive)
+    \item Encoded message fits in group ($m < p$)
+\end{itemize}
+
+\textbf{Encryption process:}
+\begin{enumerate}
+    \item Convert plaintext to uppercase and encode as integer $m$
+    \item Select random $k \in \mathbb{Z}_q$
+    \item Compute ciphertext:
+    \begin{align}
+        u_1 &= g_1^k \pmod{p} \\
+        u_2 &= g_2^k \pmod{p} \\
+        e &= m \cdot h^k \pmod{p} \\
+        \alpha &= H(u_1, u_2, e) \\
+        v &= c^k \cdot d^{k \cdot \alpha} \pmod{p}
+    \end{align}
+\end{enumerate}
+
+\textbf{Output:} Ciphertext $(u_1, u_2, e, v)$ with plaintext length.
+
+\subsection{Decryption with Ciphertext Validation}
+
+\textbf{(iv) Decryption Using Private Key}
+
+\textbf{Ciphertext validation} checks:
+\begin{itemize}
+    \item All components in range $(0, p)$
+    \item Length field is positive
+\end{itemize}
+
+\textbf{Decryption process:}
+\begin{enumerate}
+    \item Compute $\alpha = H(u_1, u_2, e)$
+    \item Verify integrity: $u_1^{x_1 + y_1 \cdot \alpha} \cdot u_2^{x_2 + y_2 \cdot \alpha} \equiv v \pmod{p}$
+    \item If verification fails, reject ciphertext
+    \item Recover message: $m = e \cdot (u_1^z)^{-1} \pmod{p}$
+    \item Decode integer back to plaintext
+\end{enumerate}
+
+%==============================================================================
+\section{Mathematical Background}
+%==============================================================================
+
+\subsection{Safe Primes}
+
+A \textbf{safe prime} $p = 2q + 1$ where $q$ is also prime. This ensures the 
+multiplicative group $\mathbb{Z}_p^*$ has a subgroup of prime order $q$ with no 
+small subgroups, making the DDH assumption hold.
+
+\subsection{Decisional Diffie-Hellman Assumption}
+
+Given $(g, g^a, g^b)$, it is computationally infeasible to distinguish $g^{ab}$ 
+from a random group element. This assumption underlies the security of 
+Cramer-Shoup.
+
+\subsection{Hash Function}
+
+A collision-resistant hash function $H: G^3 \rightarrow \mathbb{Z}_q$ binds 
+ciphertext components together for integrity verification. The implementation 
+uses SHA-256.
+
+%==============================================================================
+\section{Implementation Details}
+%==============================================================================
+
+\subsection{Alphabet Encoding}
+
+Characters are encoded as: Space=0, A=1, B=2, ..., Z=26. Messages are converted 
+to integers using base-27 encoding.
+
+\subsection{Key Generation}
+
+Safe primes are generated using the Miller-Rabin primality test. Generators are 
+found by squaring random elements in $\mathbb{Z}_p^*$. All random selections use 
+cryptographically secure random number generation.
+
+\subsection{Validation}
+
+\textbf{Plaintext validation:} Checks for valid characters and message length.
+
+\textbf{Ciphertext validation:} Verifies component ranges and integrity using 
+the verification tag $v$.
+
+%==============================================================================
+\section{Example Execution}
+%==============================================================================
+
+The demonstration shows two cases:
+
+\subsection{Case 1: Successful Encryption and Decryption}
+
+\begin{lstlisting}[language=bash]
+Plaintext: 'HELLO WORLD'
+Encryption: Valid plaintext → Ciphertext (u1, u2, e, v)
+Decryption: Valid ciphertext → 'HELLO WORLD'
+Success: Decryption matches original!
+\end{lstlisting}
+
+\subsection{Case 2: Tampered Ciphertext Detection}
+
+\begin{lstlisting}[language=bash]
+Plaintext: 'SECRET MESSAGE'
+Encryption: Valid plaintext → Ciphertext
+Tampering: Modify ciphertext component 'e'
+Decryption: Integrity verification fails
+Success: Tampered ciphertext detected and rejected
+\end{lstlisting}
+
+%==============================================================================
+\section{Conclusion}
+%==============================================================================
+
+The Cramer-Shoup cryptosystem provides IND-CCA2 security with built-in integrity 
+verification. This implementation demonstrates all required features: 27-character 
+alphabet, random key generation, encryption with plaintext validation, and 
+decryption with ciphertext validation.
+
+%==============================================================================
+% References
+%==============================================================================
+
+\begin{thebibliography}{9}
+
+\bibitem{cramer1998}
+Ronald Cramer and Victor Shoup.
+\textit{A Practical Public Key Cryptosystem Provably Secure Against Adaptive Chosen Ciphertext Attack}.
+In Advances in Cryptology --- CRYPTO '98, LNCS 1462, pages 13--25. Springer, 1998.
+
+\end{thebibliography}
+
+\end{document}
