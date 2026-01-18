@@ -1,0 +1,40 @@
+==== Experiment Results ====
+Threads: 8
+Accounts: 1000
+Transactions: 100000
+Initial amount per account: 100000
+Total time (ms): 18
+Operations per second: 5.55556e+06
+Final serial: 100000
+============================
+
+==== Experiment Results ====
+Threads: 8
+Accounts: 1000
+Transactions: 100000
+Initial amount per account: 100000
+Total time (ms): 20
+Operations per second: 5e+06
+Final serial: 100000
+============================
+
+==== Experiment Results ====
+Threads: 8
+Accounts: 1000
+Transactions: 100000
+Initial amount per account: 100000
+Total time (ms): 22
+Operations per second: 4.54545e+06
+Final serial: 100000
+============================
+
+==== Experiment Results ====
+Threads: 8
+Accounts: 1000
+Transactions: 100000
+Initial amount per account: 100000
+Total time (ms): 26
+Operations per second: 3.84615e+06
+Final serial: 100000
+============================
+

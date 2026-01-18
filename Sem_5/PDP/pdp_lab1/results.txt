@@ -1,0 +1,100 @@
+Documentation: Mutexes & Invariants
+Each account has a mutex protecting its balance and log.
+Transfers lock the two accounts in increasing id order.
+The checker locks ALL accounts in increasing id order.
+Invariants:
+  - Total money conserved (implied by atomic transfers).
+  - Each transfer appears exactly twice (seen-twice check).
+Lock ordering prevents deadlocks and ensures consistency.
+
+
+
+TEST DATA
+Hardware & Software: MacOS, 8 cores
+Threads: 1
+Accounts: 1000
+Transactions: 100000
+Initial amount per account: 1000
+Total time (ms): 15
+Final operationCounter: 100000
+-------------------------------------
+
+TEST DATA
+Hardware & Software: MacOS, 8 cores
+Threads: 2
+Accounts: 1000
+Transactions: 100000
+Initial amount per account: 1000
+Total time (ms): 15
+Final operationCounter: 100000
+-------------------------------------
+
+TEST DATA
+Hardware & Software: MacOS, 8 cores
+Threads: 4
+Accounts: 1000
+Transactions: 100000
+Initial amount per account: 1000
+Total time (ms): 13
+Final operationCounter: 100000
+-------------------------------------
+
+TEST DATA
+Hardware & Software: MacOS, 8 cores
+Threads: 8
+Accounts: 1000
+Transactions: 100000
+Initial amount per account: 1000
+Total time (ms): 13
+Final operationCounter: 100000
+-------------------------------------
+
+TEST DATA
+Hardware & Software: MacOS, 8 cores
+Threads: 1
+Accounts: 1000
+Transactions: 1000000
+Initial amount per account: 1000
+Total time (ms): 83
+Final operationCounter: 1000000
+-------------------------------------
+
+TEST DATA
+Hardware & Software: MacOS, 8 cores
+Threads: 2
+Accounts: 1000
+Transactions: 1000000
+Initial amount per account: 1000
+Total time (ms): 80
+Final operationCounter: 1000000
+-------------------------------------
+
+TEST DATA
+Hardware & Software: MacOS, 8 cores
+Threads: 4
+Accounts: 1000
+Transactions: 1000000
+Initial amount per account: 1000
+Total time (ms): 113
+Final operationCounter: 1000000
+--------------------------------------
+
+TEST DATA
+Hardware & Software: MacOS, 8 cores
+Threads: 10
+Accounts: 1000
+Transactions: 1000000
+Initial amount per account: 1000
+Total time (ms): 160
+Final operationCounter: 1000000
+-------------------------------------
+TEST DATA
+Hardware & Software: MacOS, 8 cores
+Threads: 7
+Accounts: 1000
+Transactions: 1000000
+Initial amount per account: 1000
+Total time (ms): 231
+Final operationCounter: 999999
+-------------------------------------
+
