@@ -1,0 +1,275 @@
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import '../../data/book_review_entry.dart';
+import '../components/form_components.dart';
+
+class CreateBookDialog extends StatefulWidget {
+  final VoidCallback onDismiss;
+  final Function(BookReviewEntry) onConfirm;
+
+  const CreateBookDialog({
+    super.key,
+    required this.onDismiss,
+    required this.onConfirm,
+  });
+
+  @override
+  State<CreateBookDialog> createState() => _CreateBookDialogState();
+}
+
+class _CreateBookDialogState extends State<CreateBookDialog> {
+  final _formKey = GlobalKey<FormState>();
+  String _coverImageURL = "";
+  String _bookTitle = "";
+  String _genre = "";
+  String _authorName = "";
+  String _readingStatus = BookReviewEntry.statusPlanned;
+  DateTime _startDate = DateTime.now();
+  String _starRating = "";
+  String _reviewDescription = "";
+
+  String? _bookTitleError;
+  String? _authorNameError;
+  String? _starRatingError;
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: _startDate,
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2100),
+    );
+    if (picked != null && picked != _startDate) {
+      setState(() {
+        _startDate = picked;
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final dateFormat = DateFormat('MMM dd, yyyy');
+
+    return Dialog(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          title: const Text(
+            "Add new read",
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 18,
+              fontWeight: FontWeight.normal,
+            ),
+          ),
+          backgroundColor: Colors.white,
+          elevation: 0,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back, color: Colors.black),
+            onPressed: widget.onDismiss,
+          ),
+          actions: [
+            TextButton(
+              onPressed: widget.onDismiss,
+              child: const Text(
+                "Cancel",
+                style: TextStyle(
+                  color: Color(0xFFE53935),
+                  fontSize: 16,
+                ),
+              ),
+            ),
+          ],
+        ),
+        body: Form(
+          key: _formKey,
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Cover Image URL
+                CustomFormField(
+                  label: "Cover Image (URL)",
+                  value: _coverImageURL,
+                  onValueChange: (value) {
+                    setState(() {
+                      _coverImageURL = value;
+                    });
+                  },
+                  placeholder: "Cover Image URL",
+                ),
+                const SizedBox(height: 20),
+                // Book Title
+                CustomFormField(
+                  label: "Book Title",
+                  value: _bookTitle,
+                  onValueChange: (value) {
+                    setState(() {
+                      _bookTitle = value;
+                      _bookTitleError = null;
+                    });
+                  },
+                  placeholder: "Book Title",
+                  isError: _bookTitleError != null,
+                  errorMessage: _bookTitleError,
+                ),
+                const SizedBox(height: 20),
+                // Genre
+                CustomFormField(
+                  label: "Genre",
+                  value: _genre,
+                  onValueChange: (value) {
+                    setState(() {
+                      _genre = value;
+                    });
+                  },
+                  placeholder: "Book genre",
+                ),
+                const SizedBox(height: 20),
+                // Author Name
+                CustomFormField(
+                  label: "Author Name",
+                  value: _authorName,
+                  onValueChange: (value) {
+                    setState(() {
+                      _authorName = value;
+                      _authorNameError = null;
+                    });
+                  },
+                  placeholder: "Book Author",
+                  isError: _authorNameError != null,
+                  errorMessage: _authorNameError,
+                ),
+                const SizedBox(height: 20),
+                // Status
+                const Text(
+                  "Status",
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.black,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                StatusSelector(
+                  selectedStatus: _readingStatus,
+                  onStatusSelected: (status) {
+                    setState(() {
+                      _readingStatus = status;
+                    });
+                  },
+                ),
+                const SizedBox(height: 20),
+                // Start Date
+                ActionFormField(
+                  label: "Start date",
+                  value: dateFormat.format(_startDate),
+                  placeholder: "Start date of reading",
+                  onTap: () => _selectDate(context),
+                  trailingIcon: Icons.calendar_today_outlined,
+                ),
+                const SizedBox(height: 20),
+                // Rating
+                CustomFormField(
+                  label: "Rating (0 - 5 stars)",
+                  value: _starRating,
+                  onValueChange: (value) {
+                    setState(() {
+                      _starRating = value;
+                      _starRatingError = null;
+                    });
+                  },
+                  placeholder: "Rating",
+                  isError: _starRatingError != null,
+                  errorMessage: _starRatingError,
+                ),
+                const SizedBox(height: 20),
+                // Rating Description
+                CustomFormField(
+                  label: "Rating Description",
+                  value: _reviewDescription,
+                  onValueChange: (value) {
+                    setState(() {
+                      _reviewDescription = value;
+                    });
+                  },
+                  placeholder: "Description",
+                  minLines: 3,
+                ),
+                const SizedBox(height: 16),
+                // Submit Button
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      // Validation
+                      bool isValid = true;
+                      setState(() {
+                        _bookTitleError = null;
+                        _authorNameError = null;
+                        _starRatingError = null;
+                      });
+
+                      if (_bookTitle.trim().isEmpty) {
+                        setState(() {
+                          _bookTitleError = "Book title is required";
+                        });
+                        isValid = false;
+                      }
+
+                      if (_authorName.trim().isEmpty) {
+                        setState(() {
+                          _authorNameError = "Author name is required";
+                        });
+                        isValid = false;
+                      }
+
+                      if (_starRating.isNotEmpty) {
+                        final rating = double.tryParse(_starRating);
+                        if (rating == null || rating < 0 || rating > 5) {
+                          setState(() {
+                            _starRatingError = "Rating must be between 0 and 5";
+                          });
+                          isValid = false;
+                        }
+                      }
+
+                      if (isValid) {
+                        // ID will be generated by repository (user not aware of internal ID)
+                        final newBook = BookReviewEntry(
+                          bookTitle: _bookTitle.trim(),
+                          authorName: _authorName.trim(),
+                          genre: _genre.trim(),
+                          readingStatus: _readingStatus,
+                          starRating: _starRating.isNotEmpty
+                              ? double.tryParse(_starRating) ?? 0.0
+                              : 0.0,
+                          reviewDescription: _reviewDescription.trim(),
+                          startDate: _startDate,
+                          coverImageURL: _coverImageURL.trim(),
+                        );
+                        widget.onConfirm(newBook);
+                      }
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF2196F3),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      padding: const EdgeInsets.symmetric(vertical: 12),
+                    ),
+                    child: const Text(
+                      "Submit a review",
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
