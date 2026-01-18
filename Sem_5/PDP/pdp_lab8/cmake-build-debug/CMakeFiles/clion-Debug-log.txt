@@ -1,0 +1,7 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -G Ninja -S "/Users/maraielciu/Desktop/cs anul 3/pdp/pdp_lab8" -B "/Users/maraielciu/Desktop/cs anul 3/pdp/pdp_lab8/cmake-build-debug"
+-- Found MPI_C: /opt/homebrew/Cellar/open-mpi/5.0.9/lib/libmpi.dylib (found version "3.1")
+-- Found MPI_CXX: /opt/homebrew/Cellar/open-mpi/5.0.9/lib/libmpi.dylib (found version "3.1")
+-- Found MPI: TRUE (found version "3.1")
+-- Configuring done (1.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/maraielciu/Desktop/cs anul 3/pdp/pdp_lab8/cmake-build-debug
