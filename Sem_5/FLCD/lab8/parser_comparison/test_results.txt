@@ -1,0 +1,188 @@
+==========================================
+  COMPREHENSIVE PARSER TESTING
+==========================================
+
+Test Programs:
+  ✓ test_simple.src - Simple program (valid)
+  ✓ test_complex.src - Complex program with IF/WHILE/MEAN (valid)
+  ✓ test_lexical_error.src - Lexical error (@ symbol)
+  ✓ test_syntax_error.src - Syntax error (missing semicolon)
+
+==========================================
+
+==========================================
+TEST: test_simple
+Description: Simple program (valid)
+==========================================
+
+Source Code:
+---
+START
+    INT !x = 5;
+    INT !y = 10;
+    !x = !x + !y;
+STOP
+---
+
+  Running scanner...
+  ✓ Scanner: SUCCESS
+
+PIF Information:
+./test_all_programs.sh: line 170: local: can only be used in a function
+  Tokens: 
+
+  Running LL(1) parser...
+  ✓ LL(1): SUCCESS
+    Productions: 36
+    Parse tree nodes: 61
+
+  Running Yacc parser...
+  ✓ Yacc: SUCCESS
+    Productions: 24
+    C code:       28 lines
+
+Result Summary:
+  Scanner: ✓ SUCCESS
+  LL(1):   ✓ SUCCESS
+  Yacc:    ✓ SUCCESS
+
+
+==========================================
+TEST: test_complex
+Description: Complex program with IF/WHILE/MEAN (valid)
+==========================================
+
+Source Code:
+---
+START
+    INT !counter = 0;
+    INT !sum = 0;
+    FLOAT !average = 0.0;
+    
+    !counter = 5;
+    !sum = !counter * 2;
+    
+    IF (!sum > 8) {
+        WRITE(!sum);
+    }
+    
+    WHILE (!counter > 0) {
+        !counter = !counter - 1;
+    }
+    
+    !average = MEAN(!sum, !counter, 10);
+    WRITE(!average);
+STOP
+---
+
+  Running scanner...
+  ✓ Scanner: SUCCESS
+
+PIF Information:
+./test_all_programs.sh: line 170: local: can only be used in a function
+  Tokens: 
+
+  Running LL(1) parser...
+  ✓ LL(1): SUCCESS
+    Productions: 36
+    Parse tree nodes: 61
+
+  Running Yacc parser...
+  ✓ Yacc: SUCCESS
+    Productions: 24
+    C code:       28 lines
+
+Result Summary:
+  Scanner: ✓ SUCCESS
+  LL(1):   ✓ SUCCESS
+  Yacc:    ✓ SUCCESS
+
+
+==========================================
+TEST: test_lexical_error
+Description: Lexical error (@ symbol)
+==========================================
+
+Source Code:
+---
+START
+    INT !x = 5;
+    INT !y@ = 10;
+    !x = !x + !y@;
+STOP
+---
+
+  Running scanner...
+  ✓ Scanner: SUCCESS
+
+PIF Information:
+./test_all_programs.sh: line 170: local: can only be used in a function
+  Tokens: 
+
+  Running LL(1) parser...
+  ✓ LL(1): SUCCESS
+    Productions: 36
+    Parse tree nodes: 61
+
+  Running Yacc parser...
+  ✓ Yacc: SUCCESS
+    Productions: 24
+    C code:       28 lines
+
+Result Summary:
+  Scanner: ✓ SUCCESS
+  LL(1):   ✓ SUCCESS
+  Yacc:    ✓ SUCCESS
+
+
+==========================================
+TEST: test_syntax_error
+Description: Syntax error (missing semicolon)
+==========================================
+
+Source Code:
+---
+START
+    INT !x = 5;
+    INT !y = 10
+    !x = !x + !y;
+STOP
+---
+
+  Running scanner...
+  ✓ Scanner: SUCCESS
+
+PIF Information:
+./test_all_programs.sh: line 170: local: can only be used in a function
+  Tokens: 
+
+  Running LL(1) parser...
+  ✓ LL(1): SUCCESS
+    Productions: 36
+    Parse tree nodes: 61
+
+  Running Yacc parser...
+  ✓ Yacc: SUCCESS
+    Productions: 24
+    C code:       28 lines
+
+Result Summary:
+  Scanner: ✓ SUCCESS
+  LL(1):   ✓ SUCCESS
+  Yacc:    ✓ SUCCESS
+
+
+==========================================
+  COMPARISON SUMMARY
+==========================================
+
+Test Case                 Scanner    LL(1)      Yacc      
+------------------------- ---------- ---------- ----------
+test_simple               ✓ PASS   ✓ PASS   ✓ PASS  
+test_complex              ✓ PASS   ✓ PASS   ✓ PASS  
+test_lexical_error        ✓ PASS   ✓ PASS   ✓ PASS  
+test_syntax_error         ✓ PASS   ✓ PASS   ✓ PASS  
+
+Output files saved in: results/
+Test completed at: Mon Dec 15 14:15:58 EET 2025
+==========================================

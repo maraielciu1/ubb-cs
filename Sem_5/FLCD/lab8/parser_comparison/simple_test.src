@@ -1,0 +1,6 @@
+START
+    INT !x = 5;
+    INT !y = 10;
+    !x = !x + !y;
+    WRITE(!x);
+STOP

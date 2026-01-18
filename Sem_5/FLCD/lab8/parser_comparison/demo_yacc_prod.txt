@@ -1,0 +1,127 @@
+1: type -> INT
+2: factor -> const
+3: term -> factor
+4: expr -> term
+5: decl -> type ID = expr
+6: statement -> decl
+7: statement_list -> statement
+8: type -> INT
+9: factor -> const
+10: term -> factor
+11: expr -> term
+12: decl -> type ID = expr
+13: statement -> decl
+14: statement_list -> statement_list statement
+15: type -> FLOAT
+16: factor -> const
+17: term -> factor
+18: expr -> term
+19: decl -> type ID = expr
+20: statement -> decl
+21: statement_list -> statement_list statement
+22: factor -> ID
+23: term -> factor
+24: expr -> term
+25: factor -> ID
+26: term -> factor
+27: expr -> expr + term
+28: assignment -> ID = expr
+29: statement -> assignment
+30: statement_list -> statement_list statement
+31: factor -> ID
+32: term -> factor
+33: expr -> term
+34: io -> WRITE
+35: statement -> io
+36: statement_list -> statement_list statement
+37: type -> FLOAT
+38: factor -> ID
+39: term -> factor
+40: expr -> term
+41: factor -> ID
+42: term -> factor
+43: expr -> term
+44: factor -> const
+45: term -> factor
+46: expr -> term
+47: stat_call -> func(args)
+48: factor -> stat_call
+49: term -> factor
+50: expr -> term
+51: decl -> type ID = expr
+52: statement -> decl
+53: statement_list -> statement_list statement
+54: factor -> ID
+55: term -> factor
+56: expr -> term
+57: io -> WRITE
+58: statement -> io
+59: statement_list -> statement_list statement
+60: factor -> ID
+61: term -> factor
+62: expr -> term
+63: factor -> ID
+64: term -> factor
+65: expr -> term
+66: cond -> expr op expr
+67: factor -> ID
+68: term -> factor
+69: expr -> term
+70: io -> WRITE
+71: statement -> io
+72: statement_list -> statement
+73: factor -> ID
+74: term -> factor
+75: expr -> term
+76: io -> WRITE
+77: statement -> io
+78: statement_list -> statement
+79: if_statement -> IF...ELSE...
+80: statement -> if
+81: statement_list -> statement_list statement
+82: factor -> ID
+83: term -> factor
+84: expr -> term
+85: factor -> const
+86: term -> factor
+87: expr -> term
+88: cond -> expr op expr
+89: factor -> ID
+90: term -> factor
+91: expr -> term
+92: factor -> const
+93: term -> factor
+94: expr -> expr + term
+95: assignment -> ID = expr
+96: statement -> assignment
+97: statement_list -> statement
+98: factor -> ID
+99: term -> factor
+100: expr -> term
+101: io -> WRITE
+102: statement -> io
+103: statement_list -> statement_list statement
+104: while_statement
+105: statement -> while
+106: statement_list -> statement_list statement
+107: type -> FLOAT
+108: factor -> const
+109: term -> factor
+110: expr -> term
+111: decl -> type ID = expr
+112: statement -> decl
+113: statement_list -> statement_list statement
+114: factor -> const
+115: term -> factor
+116: expr -> term
+117: sample -> direct
+118: stat -> sample
+119: statement -> stat
+120: statement_list -> statement_list statement
+121: factor -> ID
+122: term -> factor
+123: expr -> term
+124: io -> WRITE
+125: statement -> io
+126: statement_list -> statement_list statement
+127: program -> START statement_list STOP

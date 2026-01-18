@@ -1,0 +1,23 @@
+Warning: Using fallback production for term_prime with token 289
+Warning: Using fallback production for multiplication_operator with token 289
+Syntax error: expected MUL, got token 289
+LL(1) Parser for Mini-DSL
+========================
+
+Reading PIF file: pif.txt
+Loaded 36 tokens
+
+Creating grammar...
+Grammar created with 50 productions
+
+Building LL(1) parser...
+Computing FIRST sets...
+Computing FOLLOW sets...
+Building parsing table...
+LL(1) parser ready
+
+Parsing input...
+Parsing failed!
+real 0.78
+user 0.00
+sys 0.00

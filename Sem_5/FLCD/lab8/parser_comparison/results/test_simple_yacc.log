@@ -1,0 +1,10 @@
+Warning: Cannot open symbol table file: results/st.txt
+Warning: No value found for token IDENTIFIER at index 0
+Warning: No value found for token INT_CONST at index 1
+Warning: No value found for token IDENTIFIER at index 2
+Warning: No value found for token INT_CONST at index 3
+Warning: No value found for token IDENTIFIER at index 0
+Warning: No value found for token IDENTIFIER at index 0
+Warning: No value found for token IDENTIFIER at index 2
+Starting Translation...
+Done! Compile with: gcc out/generated_program.c -o program -lm

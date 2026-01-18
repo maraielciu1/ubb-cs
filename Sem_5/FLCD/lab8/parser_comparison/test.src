@@ -1,0 +1,11 @@
+START
+    !x = 23; 
+    IF ( !x > 10 )  {
+        WRITE("large");
+    } ELSE {
+        WRITE("small");
+    }
+    !y = 5; 
+    WRITE("done");
+STOP
+

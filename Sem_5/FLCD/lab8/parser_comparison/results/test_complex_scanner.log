@@ -1,0 +1,4 @@
+Lexical analysis complete.
+PIF: out/pif.txt
+ST: out/st.txt
+Errors: out/lexical_errors.txt

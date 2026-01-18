@@ -1,0 +1,19 @@
+START
+    INT !counter = 0;
+    INT !sum = 0;
+    FLOAT !average = 0.0;
+    
+    !counter = 5;
+    !sum = !counter * 2;
+    
+    IF (!sum > 8) {
+        WRITE(!sum);
+    }
+    
+    WHILE (!counter > 0) {
+        !counter = !counter - 1;
+    }
+    
+    !average = MEAN(!sum, !counter, 10);
+    WRITE(!average);
+STOP

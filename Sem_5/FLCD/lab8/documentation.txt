@@ -1,0 +1,235 @@
+LAB 8: CODE GENERATION - TRANSLATION TO C
+==========================================
+
+OVERVIEW
+--------
+This lab implements syntax-directed translation to generate C code from the custom statistical language.
+The parser from Lab 6 has been extended with semantic actions that build C code strings during parsing.
+
+DIRECTORY STRUCTURE
+-------------------
+lab8/
+├── scanner/          # Lexical analyzer (from lab6)
+│   ├── lexer.l       # Flex lexer specification
+│   ├── fa_rg/        # Finite automata for token validation
+│   ├── test.src      # Basic test program
+│   ├── test_advanced.src  # Advanced test with statistical functions
+│   └── out/          # Scanner output (PIF, ST, errors)
+│
+├── parser/           # Parser with code generation
+│   ├── parser.y      # Yacc/Bison grammar with semantic actions
+│   ├── pif_lexer.c   # Custom lexer that reads PIF files
+│   ├── symbol_table.c/h  # Symbol table implementation
+│   ├── Makefile      # Build configuration
+│   └── out/          # Generated C code and parse tree
+│
+├── demo.sh           # Complete workflow demonstration
+├── README.md         # Usage guide and examples
+└── IMPLEMENTATION.md # Detailed implementation documentation
+
+KEY FEATURES
+------------
+1. Syntax-Directed Translation
+   - Semantic actions attached to grammar rules
+   - Builds C code strings bottom-up during parsing
+   - Uses %union to associate code strings with non-terminals
+
+2. Runtime Library
+   - calc_mean() - Calculate mean of array
+   - calc_stdev() - Calculate standard deviation
+   - sample_normal() - Sample from normal distribution (Box-Muller)
+   - Embedded in every generated program
+
+3. Type Translation
+   - INT → int
+   - FLOAT → double
+   - CHAR → char
+   - STRING → char*
+
+4. Statistical Functions
+   - MEAN(a,b,c) → calc_mean((double[]){a,b,c}, sizeof(...)/sizeof(double))
+   - STDEV(a,b,c) → calc_stdev((double[]){a,b,c}, sizeof(...)/sizeof(double))
+   - Uses C99 compound literal syntax for flexible argument lists
+
+5. Control Flow
+   - IF/ELSE → if/else
+   - WHILE → while
+   - Proper nesting and bracing
+
+6. I/O Operations
+   - WRITE(expr) → printf("Output: %g\n", (double)expr)
+   - READ(var) → printf("Enter value: "); scanf("%lf", &var)
+
+7. Distribution Sampling
+   - SAMPLE(NORMAL, param) → sample_normal(param)
+   - Support for NORMAL, BINOMIAL, POISSON types
+
+IMPLEMENTATION DETAILS
+----------------------
+1. Parser Grammar (parser.y)
+   - Uses %union { char* code; } for code generation
+   - Each non-terminal that generates code has type <code>
+   - Semantic actions build C code strings using cat() and new_str()
+
+2. String Management
+   - new_str(s) - Duplicates string for code buffer
+   - cat(n, ...) - Concatenates n strings and frees them
+   - Automatic memory management to prevent leaks
+
+3. PIF Reader (pif_lexer.c)
+   - Custom yylex() reads from PIF file instead of source
+   - Loads symbol table to retrieve lexeme values
+   - Strips '!' prefix from identifiers (C doesn't allow it)
+   - Maps token names to token codes
+
+4. Symbol Table Integration
+   - Loads st.txt at parser initialization
+   - Creates index-to-value mapping
+   - Retrieves actual lexeme values for identifiers and constants
+
+USAGE
+-----
+Complete workflow (automated):
+    ./demo.sh
+
+Step-by-step:
+    # 1. Scan the source code
+    cd scanner
+    make clean && make
+    ./scanner test.src
+
+    # 2. Generate C code
+    cd ../parser
+    make clean && make
+    ./parser ../scanner/out/pif.txt
+
+    # 3. Compile generated code
+    gcc out/generated_program.c -o out/program -lm
+
+    # 4. Run the program
+    ./out/program
+
+OUTPUT FILES
+------------
+scanner/out/pif.txt           - Program Internal Form (token stream)
+scanner/out/st.txt            - Symbol Table (identifiers and constants)
+scanner/out/lexical_errors.txt - Lexical errors (if any)
+parser/out/productions.txt    - Grammar productions used during parsing
+parser/out/generated_program.c - Generated C code
+parser/out/program            - Compiled executable
+
+EXAMPLE TRANSLATION
+-------------------
+Source (test.src):
+    START
+        INT !x = 5;
+        FLOAT !result = 0.0;
+        !result = MEAN(!x, 10, 15);
+        WRITE(!result);
+    STOP
+
+Generated C:
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <math.h>
+    #include <time.h>
+
+    /* Runtime library functions here */
+
+    int main() {
+        srand(time(NULL));
+        int x = 5;
+        double result = 0.0;
+        result = calc_mean((double[]){x, 10, 15}, 
+                          sizeof((double[]){x, 10, 15})/sizeof(double));
+        printf("Output: %g\n", (double)result);
+        return 0;
+    }
+
+Output:
+    Output: 10
+
+TESTING
+-------
+Two test programs are provided:
+
+1. test.src (Basic)
+   - Variable declarations
+   - Arithmetic operations
+   - Control flow (IF/ELSE, WHILE)
+   - Statistical functions (MEAN)
+   - Normal sampling
+
+2. test_advanced.src (Advanced)
+   - Multiple statistical functions (MEAN, STDEV)
+   - Complex expressions
+   - Multiple samples
+   - Nested control flow
+
+Run tests:
+    ./demo.sh                    # Run basic test
+    
+    # Run advanced test
+    cd scanner && ./scanner test_advanced.src
+    cd ../parser && ./parser ../scanner/out/pif.txt
+    gcc out/generated_program.c -o out/program -lm
+    ./out/program
+
+COMPILATION REQUIREMENTS
+------------------------
+- C99 standard (for compound literals)
+- Math library (-lm flag)
+- GCC or Clang compiler
+
+LIMITATIONS
+-----------
+1. No type checking during translation
+2. No optimization of generated code
+3. Limited error messages (PIF line numbers)
+4. No array support
+5. SAMPLE() cannot be used in declarations (must assign separately)
+6. Simple I/O (generic %g format)
+
+KNOWN ISSUES
+------------
+1. Identifier names must not conflict with C keywords
+2. String constants are not fully implemented in I/O
+3. BINOMIAL and POISSON sampling functions are stubs
+4. TTEST function is not implemented
+
+MEMORY MANAGEMENT
+-----------------
+The parser carefully manages memory for code strings:
+- All strings allocated with strdup() or malloc()
+- cat() automatically frees its arguments after concatenation
+- Top-level result in program rule is freed manually
+- Symbol table values freed on cleanup
+
+Common pitfall: Using a variable twice in cat()
+Wrong:  $$ = cat(4, ..., $3, ..., $3, ...);  // Second use is freed!
+Correct: char* dup = strdup($3); $$ = cat(4, ..., $3, ..., new_str(dup), ...); free(dup);
+
+FUTURE ENHANCEMENTS
+-------------------
+1. Better error reporting with source line mapping
+2. Type checking during translation
+3. Code optimizations (constant folding, dead code elimination)
+4. Array support with declarations and indexing
+5. Complete implementation of all distribution types
+6. Statistical test functions (T-test, Chi-square, etc.)
+7. Formatted I/O with custom format strings
+8. Function definitions and calls
+
+REFERENCES
+----------
+- Lab 6: Parser implementation
+- Lab 5: Scanner with finite automata
+- C99 Standard: Compound literals and VLA
+- Compilers: Principles, Techniques, and Tools (Dragon Book)
+  Chapter 5: Syntax-Directed Translation
+
+AUTHOR
+------
+Lab completed as part of FLCD course - 2025
+Based on scanner and parser from previous labs
+Extended with code generation capabilities

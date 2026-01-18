@@ -1,0 +1,37 @@
+1: program -> START statement_list STOP
+2: statement_list -> statement statement_list
+8: statement -> declaration_statement
+16: declaration_statement -> type IDENTIFIER ASSIGN expression SEMICOLON
+17: type -> INT
+21: expression -> term expression_prime
+24: term -> factor term_prime
+28: factor -> constant
+30: constant -> INT_CONST
+26: term_prime -> epsilon
+23: expression_prime -> epsilon
+2: statement_list -> statement statement_list
+8: statement -> declaration_statement
+16: declaration_statement -> type IDENTIFIER ASSIGN expression SEMICOLON
+17: type -> INT
+21: expression -> term expression_prime
+24: term -> factor term_prime
+28: factor -> constant
+30: constant -> INT_CONST
+26: term_prime -> epsilon
+23: expression_prime -> epsilon
+2: statement_list -> statement statement_list
+4: statement -> assignment_statement
+9: assignment_statement -> IDENTIFIER ASSIGN expression SEMICOLON
+21: expression -> term expression_prime
+24: term -> factor term_prime
+27: factor -> IDENTIFIER
+26: term_prime -> epsilon
+22: expression_prime -> addition_operator term expression_prime
+44: addition_operator -> PLUS
+24: term -> factor term_prime
+27: factor -> IDENTIFIER
+26: term_prime -> epsilon
+23: expression_prime -> epsilon
+3: statement_list -> epsilon
+
+Total productions: 35

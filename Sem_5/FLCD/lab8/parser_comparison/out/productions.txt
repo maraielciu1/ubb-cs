@@ -1,0 +1,24 @@
+1: type -> INT
+2: factor -> const
+3: term -> factor
+4: expr -> term
+5: decl -> type ID = expr
+6: statement -> decl
+7: statement_list -> statement
+8: type -> INT
+9: factor -> const
+10: term -> factor
+11: expr -> term
+12: decl -> type ID = expr
+13: statement -> decl
+14: statement_list -> statement_list statement
+15: factor -> ID
+16: term -> factor
+17: expr -> term
+18: factor -> ID
+19: term -> factor
+20: expr -> expr + term
+21: assignment -> ID = expr
+22: statement -> assignment
+23: statement_list -> statement_list statement
+24: program -> START statement_list STOP
