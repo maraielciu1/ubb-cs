@@ -1,0 +1,48 @@
+1: constant -> INT_CONST
+2: factor -> constant
+3: term -> factor
+4: expression -> term
+5: assignment_statement -> IDENTIFIER ASSIGN expression SEMICOLON
+6: statement -> assignment_statement
+7: statement_list -> statement
+8: factor -> IDENTIFIER
+9: term -> factor
+10: expression -> term
+11: relational_operator -> GT
+12: constant -> INT_CONST
+13: factor -> constant
+14: term -> factor
+15: expression -> term
+16: condition -> expression relational_operator expression
+17: constant -> STRING_CONST
+18: factor -> constant
+19: term -> factor
+20: expression -> term
+21: io_statement -> WRITE LPAREN expression RPAREN SEMICOLON
+22: statement -> io_statement
+23: statement_list -> statement
+24: constant -> STRING_CONST
+25: factor -> constant
+26: term -> factor
+27: expression -> term
+28: io_statement -> WRITE LPAREN expression RPAREN SEMICOLON
+29: statement -> io_statement
+30: statement_list -> statement
+31: if_statement -> IF LPAREN condition RPAREN LBRACE statement_list RBRACE ELSE LBRACE statement_list RBRACE
+32: statement -> if_statement
+33: statement_list -> statement_list statement
+34: constant -> INT_CONST
+35: factor -> constant
+36: term -> factor
+37: expression -> term
+38: assignment_statement -> IDENTIFIER ASSIGN expression SEMICOLON
+39: statement -> assignment_statement
+40: statement_list -> statement_list statement
+41: constant -> STRING_CONST
+42: factor -> constant
+43: term -> factor
+44: expression -> term
+45: io_statement -> WRITE LPAREN expression RPAREN SEMICOLON
+46: statement -> io_statement
+47: statement_list -> statement_list statement
+48: program -> START statement_list STOP

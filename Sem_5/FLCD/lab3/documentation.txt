@@ -1,0 +1,30 @@
+Use of Tools
+ - Flex — defines the lexical structure of the language using regular expressions and automatically generates the C source code (lex.yy.c) for the lexer.
+ - GCC / Clang — compiles the generated C files (lex.yy.c, symbol_table.c) into an executable program.
+ - C Language — used for implementing data structures (symbol table), handling file outputs (PIF, ST, Errors), and integrating with the Flex scanner.
+
+Lexical Tokens Detection
+The lexer identifies tokens according to the DSL grammar:
+ - Identifiers — start with ! followed by a letter, then letters, digits, or underscores (![A-Za-z][A-Za-z0-9_]*).
+Example: !x, !value1.
+ - Constants
+        - Integer: (0|[+\-]?[1-9][0-9]*)
+        - Float: [+\-]?[0-9]+\.[0-9]+
+        - Character: '[A-Za-z0-9_]'
+        - String: "([A-Za-z0-9_ \.;!])*".
+Keywords — reserved words like START, STOP, IF, ELSE, READ, WRITE, etc.
+Operators and Separators — + - * / % = == != < > <= >= && || ( ) { } ; , ..
+Others — any unrecognized symbol produces a lexical error message recorded with line and column.
+Each recognized token is written into the Program Internal Form (PIF) as (token_name, ST_position).
+
+Symbol Table (ST) Management
+ - Implemented in C as a hash table with double hashing to resolve collisions efficiently.
+ - Stores only identifiers and constants.
+ - Each symbol receives a unique index when first inserted.
+ - Main Operations:
+        - st_init() — initialize the table.
+        - st_insert(value) — add a new symbol if not already present.
+        - st_search(value) — check existence of a symbol.
+        - st_get_index(value) — return the stored index.
+        - st_print(filename) — export all entries to a text file.
+ - The Symbol Table ensures fast lookups and no duplicates, supporting later compiler phases.

@@ -1,0 +1,164 @@
+Lab 7: LL(1) Parser Implementation
+==================================
+
+1. Introduction
+---------------
+This document describes the implementation of an LL(1) parser for the mini-DSL
+language. The parser performs top-down predictive parsing using a parsing table
+constructed from FIRST and FOLLOW sets.
+
+2. Requirements
+---------------
+- Requirement 1: Implement and test LL(1) parsing algorithm
+  - Input: grammar from seminar, sequence (PIF)
+  - Output: string of productions
+
+- Requirement 2: Test with grammar for mini-DSL and PIF
+  - Input: grammar for mini-DSL, PIF
+  - Output: Parse tree representation as table (father-sibling relations)
+  - Grade: 10/10 (maximum grade option)
+
+3. LL(1) Parsing Algorithm
+---------------------------
+LL(1) parsing is a top-down parsing method that:
+- Reads input from left to right (L)
+- Constructs a leftmost derivation (L)
+- Uses 1 symbol of lookahead (1)
+
+The algorithm uses:
+1. A parsing stack
+2. An input buffer (token stream from PIF)
+3. A parsing table M[A, a] where:
+   - A is a non-terminal
+   - a is a terminal (or EOF)
+   - M[A, a] contains the production to apply
+
+4. Grammar Conversion
+---------------------
+The original grammar from Lab 1 contains left recursion, which must be
+eliminated for LL(1) parsing:
+
+Original (left recursion):
+  expression -> expression + term | term
+  term -> term * factor | factor
+
+Converted (right recursion):
+  expression -> term expression_prime
+  expression_prime -> + term expression_prime | epsilon
+  term -> factor term_prime
+  term_prime -> * factor term_prime | epsilon
+
+Similarly for:
+- statement_list -> statement statement_list | epsilon
+- condition -> expression rel_op expression condition_prime | ...
+  condition_prime -> logical_op condition condition_prime | epsilon
+
+5. FIRST and FOLLOW Sets
+------------------------
+FIRST(α): Set of terminals that can begin strings derived from α
+- If α -> aβ, then a ∈ FIRST(α)
+- If α -> ε, then ε ∈ FIRST(α)
+- If α -> Xβ and ε ∈ FIRST(X), then FIRST(α) includes FIRST(X) - {ε} ∪ FIRST(β)
+
+FOLLOW(A): Set of terminals that can appear immediately after A in some derivation
+- $ ∈ FOLLOW(S) where S is start symbol
+- If A -> αBβ, then FIRST(β) - {ε} ⊆ FOLLOW(B)
+- If A -> αB or A -> αBβ where ε ∈ FIRST(β), then FOLLOW(A) ⊆ FOLLOW(B)
+
+6. Parsing Table Construction
+------------------------------
+For each production A -> α:
+1. For each terminal a in FIRST(α), add A -> α to M[A, a]
+2. If ε ∈ FIRST(α), then for each terminal b in FOLLOW(A), add A -> α to M[A, b]
+
+7. Parse Tree Structure
+-----------------------
+The parse tree is built during parsing with the following structure:
+- Each node has:
+  * node_id: Unique identifier
+  * symbol: Grammar symbol (terminal or non-terminal)
+  * type: SYM_TERMINAL or SYM_NON_TERMINAL
+  * token_code: Token code for terminals
+  * parent: Pointer to parent node
+  * first_child: Pointer to first child
+  * next_sibling: Pointer to next sibling
+
+8. Output Format
+----------------
+The parse tree is output as a table with father-sibling representation:
+
+Node ID | Symbol                    | Father ID | Sibling ID
+--------|---------------------------|-----------|------------
+1       | program                   | -1        | -1
+2       | START                     | 1         | 3
+3       | statement_list            | 1         | 4
+4       | STOP                      | 1         | -1
+...
+
+This representation allows reconstruction of the tree structure:
+- Father ID: Links node to its parent
+- Sibling ID: Links node to its next sibling (children of same parent)
+
+9. Implementation Details
+-------------------------
+Files:
+- ll1_parser.h: Data structures and function declarations
+- ll1_parser.c: Core LL(1) parser implementation
+- pif_reader.c: PIF file reader
+- main.c: Main program
+
+Key Functions:
+- create_grammar(): Creates grammar with LL(1) compatible rules
+- compute_first_sets(): Computes FIRST sets for all non-terminals
+- compute_follow_sets(): Computes FOLLOW sets for all non-terminals
+- build_parsing_table(): Constructs LL(1) parsing table
+- parse(): Performs LL(1) parsing and builds parse tree
+- print_parse_tree_table(): Outputs parse tree as table
+
+10. Usage
+---------
+1. Generate PIF file using scanner:
+   cd lab6/scanner
+   ./scanner test.src
+
+2. Run LL(1) parser:
+   cd lab7/ll1_parser
+   make
+   ./ll1_parser ../../lab6/scanner/out/pif.txt
+
+3. Output:
+   - Console: Parsing progress and results
+   - out/parse_tree_table.txt: Parse tree table
+
+11. Testing
+-----------
+Test cases:
+- Simple assignment: !x = 5;
+- Expression: !x = 2 + 3 * 4;
+- If statement: IF (!x > 0) { WRITE("positive"); }
+- While loop: WHILE (!x < 10) { !x = !x + 1; }
+
+12. Limitations and Future Improvements
+---------------------------------------
+Current implementation:
+- Simplified FIRST/FOLLOW computation (works for basic cases)
+- Basic parsing table (can be enhanced with full table lookup)
+- Handles core grammar constructs
+
+Future improvements:
+- Complete FIRST/FOLLOW computation for all cases
+- Full parsing table with proper terminal mapping
+- Error recovery mechanisms
+- More detailed error messages
+
+13. Conclusion
+--------------
+The LL(1) parser successfully:
+- Reads PIF files from the scanner
+- Performs top-down predictive parsing
+- Builds a parse tree with parent-sibling relations
+- Outputs the tree as a table format
+
+This implementation demonstrates the integration of lexical analysis (scanner)
+with syntax analysis (LL(1) parser) for the mini-DSL language.
+

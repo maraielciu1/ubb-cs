@@ -1,0 +1,376 @@
+Introduction
+This document describes the implementation of Finite Automata (FA) and 
+Regular Grammars (RG) for identifiers and constants in the domain-specific
+programming language defined in Lab 1.
+
+The language has the following specifications:
+- Identifiers: Must start with "!" followed by a letter, then may contain
+  letters, digits, or underscores
+- Integer constants: 0 | [+-]?[1-9][0-9]*
+- Float constants: [+-]?[0-9]+\.[0-9]+
+- Character constants: 'letter' | 'digit' | '_'
+- String constants: " [letter|digit|_|space|.;!]* "
+
+Definition
+FINITE AUTOMATA (FA)
+A Finite Automaton is a 5-tuple M = (Q, Σ, δ, q0, F) where:
+- Q: Finite set of states
+- Σ: Finite alphabet (set of input symbols)
+- δ: Transition function (Q × Σ → Q)
+- q0: Initial state (q0 ∈ Q)
+- F: Set of final/accepting states (F ⊆ Q)
+
+A string is accepted by the FA if, after processing all symbols, the 
+automaton ends in a final state.
+
+REGULAR GRAMMAR (RG)
+A Regular Grammar is a 4-tuple G = (VN, VT, P, S) where:
+- VN: Finite set of non-terminal symbols
+- VT: Finite set of terminal symbols
+- P: Finite set of productions (rules)
+- S: Start symbol (S ∈ VN)
+
+Regular grammars have productions in one of these forms:
+- A → aB  (where A, B ∈ VN, a ∈ VT)
+- A → a   (where A ∈ VN, a ∈ VT)
+- A → ε   (epsilon/empty production)
+
+Stuctures
+FA STRUCTURE
+The FA structure is defined as follows:
+
+typedef struct {
+    int from_state;
+    char symbol;
+    int to_state;
+} FA_Transition;
+
+typedef struct {
+    int num_states;
+    int initial_state;
+    int final_states[MAX_STATES];
+    int num_final_states;
+    FA_Transition transitions[MAX_TRANSITIONS];
+    int num_transitions;
+} FiniteAutomata;
+
+Key components:
+- num_states: Total number of states in the automaton
+- initial_state: The starting state (q0)
+- final_states[]: Array of accepting/final states
+- num_final_states: Number of final states
+- transitions[]: Array of all state transitions
+- num_transitions: Total number of transitions
+
+RG STRUCTURE
+The RG structure is defined as follows:
+
+typedef struct {
+    char symbol[MAX_SYMBOL_LEN];
+    bool is_terminal;
+} RG_Symbol;
+
+typedef struct {
+    char left[MAX_SYMBOL_LEN];
+    char right[MAX_SYMBOL_LEN * 2];
+} RG_Production;
+
+typedef struct {
+    RG_Symbol non_terminals[MAX_STATES];
+    int num_non_terminals;
+    RG_Symbol terminals[MAX_SYMBOLS];
+    int num_terminals;
+    RG_Production productions[MAX_PRODUCTIONS];
+    int num_productions;
+    char start_symbol[MAX_SYMBOL_LEN];
+} RegularGrammar;
+
+Key components:
+- non_terminals[]: Array of non-terminal symbols
+- terminals[]: Array of terminal symbols
+- productions[]: Array of grammar productions (rules)
+- start_symbol: The starting symbol for derivation
+
+
+Language Specification:
+  identifier = "!" letter { letter | digit | "_" }
+
+FA DEFINITION FOR IDENTIFIERS
+States: Q = {q0, q1, q2}
+- q0: Initial state
+- q1: State after reading '!'
+- q2: Final state (after reading letter and optional continuation)
+
+Transitions:
+- δ(q0, '!') = q1
+- δ(q1, letter) = q2  (for all letters a-z, A-Z)
+- δ(q2, letter) = q2  (for all letters a-z, A-Z)
+- δ(q2, digit) = q2   (for all digits 0-9)
+- δ(q2, '_') = q2
+
+Final States: F = {q2}
+
+Example accepted strings:
+- "!a"
+- "!x1"
+- "!test_var"
+- "!MyVar123"
+
+RG DEFINITION FOR IDENTIFIERS
+G = (VN, VT, P, S) where:
+- VN = {IDENTIFIER, ID_CONT}
+- VT = {!, letter, digit, _}
+- S = IDENTIFIER
+
+Productions:
+1. IDENTIFIER → ! letter
+2. IDENTIFIER → ! letter ID_CONT
+3. ID_CONT → letter
+4. ID_CONT → letter ID_CONT
+5. ID_CONT → digit ID_CONT
+6. ID_CONT → _ ID_CONT
+
+Example derivation for "!x1":
+IDENTIFIER → ! letter ID_CONT  (production 2)
+           → ! x ID_CONT
+           → ! x digit ID_CONT (production 5)
+           → ! x 1 ID_CONT
+           → ! x 1 letter      (production 3)
+           → ! x 1
+
+INTEGER CONSTANTS
+Language Specification: 0 | [+-]?[1-9][0-9]*
+
+FA Definition:
+States: Q = {q0, q1, q2, q3, q4}
+- q0: Initial state
+- q1: After optional sign (+/-)
+- q2: After first nonzero digit
+- q3: After '0'
+- q4: After additional digits
+
+Transitions:
+- δ(q0, '0') = q3
+- δ(q0, '+') = q1,  δ(q0, '-') = q1
+- δ(q0, nonzero) = q2  (for 1-9)
+- δ(q1, nonzero) = q2  (for 1-9)
+- δ(q2, digit) = q4    (for 0-9)
+- δ(q4, digit) = q4    (for 0-9)
+
+Final States: F = {q2, q3, q4}
+
+RG Definition:
+Productions:
+1. INT_CONST → 0
+2. INT_CONST → + UNSIGNED_INT
+3. INT_CONST → - UNSIGNED_INT
+4. INT_CONST → UNSIGNED_INT
+5. UNSIGNED_INT → nonzero_digit
+6. UNSIGNED_INT → nonzero_digit DIGIT_SEQ
+7. DIGIT_SEQ → digit
+8. DIGIT_SEQ → digit DIGIT_SEQ
+
+FLOAT CONSTANTS
+Language Specification: [+-]?[0-9]+\.[0-9]+
+
+FA Definition:
+States: Q = {q0, q1, q2, q3, q4}
+- q0: Initial state
+- q1: After optional sign
+- q2: Integer part digits
+- q3: After decimal point
+- q4: Decimal part digits (final)
+
+Transitions:
+- δ(q0, '+') = q1,  δ(q0, '-') = q1
+- δ(q0, digit) = q2,  δ(q1, digit) = q2
+- δ(q2, digit) = q2
+- δ(q2, '.') = q3
+- δ(q3, digit) = q4
+- δ(q4, digit) = q4
+
+Final States: F = {q4}
+
+RG Definition:
+Productions:
+1. FLOAT → INT_PART . DEC_PART
+2. FLOAT → + INT_PART . DEC_PART
+3. FLOAT → - INT_PART . DEC_PART
+4. INT_PART → digit
+5. INT_PART → digit INT_PART
+6. DEC_PART → digit
+7. DEC_PART → digit DEC_PART
+
+CHARACTER CONSTANTS
+Language Specification: 'letter' | 'digit' | '_'
+
+FA Definition:
+States: Q = {q0, q1, q2, q3}
+- q0: Initial state
+- q1: After first quote
+- q2: After character
+- q3: After closing quote (final)
+
+Transitions:
+- δ(q0, ''') = q1
+- δ(q1, letter) = q2,  δ(q1, digit) = q2,  δ(q1, '_') = q2
+- δ(q2, ''') = q3
+
+Final States: F = {q3}
+
+RG Definition:
+Productions:
+1. CHAR_CONST → ' letter '
+2. CHAR_CONST → ' digit '
+3. CHAR_CONST → ' _ '
+
+STRING CONSTANTS
+Language Specification: " [letter|digit|_|space|.;!]* "
+
+FA Definition:
+States: Q = {q0, q1, q2, q3}
+- q0: Initial state
+- q1: After opening quote
+- q2: Inside string (optional characters)
+- q3: After closing quote (final)
+
+Transitions:
+- δ(q0, '"') = q1
+- δ(q1, valid_char) = q2  (letter, digit, _, space, ., ;, !)
+- δ(q1, '"') = q3  (empty string)
+- δ(q2, valid_char) = q2
+- δ(q2, '"') = q3
+
+Final States: F = {q3}
+
+RG Definition:
+Productions:
+1. STRING → " CONTENT "
+2. STRING → " "  (empty string)
+3. CONTENT → ε
+4. CONTENT → letter CONTENT
+5. CONTENT → digit CONTENT
+6. CONTENT → _ CONTENT
+7. CONTENT → space CONTENT
+8. CONTENT → . CONTENT
+9. CONTENT → ; CONTENT
+10. CONTENT → ! CONTENT
+
+
+The convert method transforms a Regular Grammar into an equivalent Finite 
+Automaton using the standard algorithm.
+
+Algorithm:
+1. Create states: Map each non-terminal to a state number
+   - Start symbol maps to state 0 (initial state)
+   - Additional state for final state (last state)
+
+2. Convert productions to transitions:
+   - For production A → aB: Add transition δ(A_state, a) = B_state
+   - For production A → a: Add transition δ(A_state, a) = final_state
+   - For production A → ε: Mark A_state as final
+
+3. Set final states:
+   - If production leads to terminal only: target state is final
+   - If epsilon production exists: source state is also final
+
+Implementation:
+FiniteAutomata* rg_to_fa(RegularGrammar* rg)
+
+The function:
+- Creates a FA with states equal to number of non-terminals + 1
+- Maps each non-terminal to a state index
+- Converts each production to appropriate transitions
+- Sets final states based on production types
+
+Example conversion (Identifier RG to FA):
+RG: IDENTIFIER → ! letter ID_CONT
+    ID_CONT → letter | letter ID_CONT
+
+Becomes:
+FA: δ(0, '!') = 1  (IDENTIFIER → !)
+    δ(1, letter) = 2  (IDENTIFIER → letter ID_CONT)
+    δ(2, letter) = 2  (ID_CONT → letter ID_CONT)
+    Final state: 2
+
+The verify method checks if a given string is accepted by a Finite Automaton
+or Regular Grammar.
+
+FA VERIFY METHOD
+Algorithm:
+1. Start at initial state q0
+2. For each symbol in the input string:
+   a. Find transition from current state with current symbol
+   b. Move to target state
+   c. If no transition exists, reject
+3. After processing all symbols, check if current state is in F
+4. If yes, accept; otherwise, reject
+
+Implementation:
+bool fa_verify(FiniteAutomata* fa, const char* input)
+
+Pseudocode:
+  current_state = fa->initial_state
+  for each symbol in input:
+      found = false
+      for each transition:
+          if transition.from == current_state and 
+             transition.symbol == symbol:
+              current_state = transition.to
+              found = true
+              break
+      if not found:
+          return false
+  
+  return (current_state in fa->final_states)
+
+Time Complexity: O(n * m) where n is input length, m is number of transitions
+
+RG VERIFY METHOD
+The RG verify method converts the grammar to FA and uses FA verification:
+
+bool rg_verify(RegularGrammar* rg, const char* input) {
+    FiniteAutomata* fa = rg_to_fa(rg);
+    bool result = fa_verify(fa, input);
+    fa_free(fa);
+    return result;
+}
+
+This approach works because regular grammars and finite automata have
+equivalent expressive power (by Kleene's theorem).
+
+Key Functions
+FA Functions:
+- fa_create(): Allocates and initializes FA structure
+- fa_add_transition(): Adds a transition to the FA
+- fa_set_final_state(): Marks a state as final
+- fa_verify(): Verifies if string is accepted
+- fa_print(): Displays FA structure
+- fa_free(): Deallocates FA memory
+
+RG Functions:
+- rg_create(): Allocates and initializes RG structure
+- rg_add_non_terminal(): Adds non-terminal symbol
+- rg_add_terminal(): Adds terminal symbol
+- rg_add_production(): Adds production rule
+- rg_verify(): Verifies if string is accepted
+- rg_print(): Displays RG structure
+- rg_free(): Deallocates RG memory
+
+Conversion Functions:
+- rg_to_fa(): Converts RG to equivalent FA
+- fa_to_rg(): Converts FA to equivalent RG
+
+Predefined Constructors:
+- create_identifier_fa() / create_identifier_rg()
+- create_int_constant_fa() / create_int_constant_rg()
+- create_float_constant_fa() / create_float_constant_rg()
+- create_char_constant_fa() / create_char_constant_rg()
+- create_string_constant_fa() / create_string_constant_rg()
+
+Limitations
+- Maximum states: MAX_STATES (100)
+- Maximum transitions: MAX_TRANSITIONS (500)
+- Maximum productions: MAX_PRODUCTIONS (200)
+- Symbol length: MAX_SYMBOL_LEN (10 characters)
+

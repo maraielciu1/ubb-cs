@@ -1,0 +1,285 @@
+FA and RG for Identifiers and Constants
+FA structure created successfully
+RG structure created successfully
+
+Identifiers:
+
+FA Definition:
+Finite Automaton:
+  States: {q0, q1, q2}
+  Alphabet: {!, letter, digit, _}
+  Start State: q0
+  Final States: {q2}
+  Transitions:
+    δ(q0, !) = q1
+    δ(q1, letter) = q2
+    δ(q2, letter) = q2
+    δ(q2, digit) = q2
+    δ(q2, _) = q2
+
+RG Definition (manually created):
+Regular Grammar (Right Linear):
+  Non-terminals: {IDENTIFIER, ID_CONT}
+  Terminals: {!, letter, digit, _}
+  Start Symbol: IDENTIFIER
+  Production Rules:
+    IDENTIFIER → ! ID_CONT
+    ID_CONT → letter
+    ID_CONT → letter ID_CONT
+    ID_CONT → digit ID_CONT
+    ID_CONT → _ ID_CONT
+
+RG Definition (converted from FA using fa_to_rg):
+Regular Grammar (Right Linear):
+  Non-terminals: {S, A, B}
+  Terminals: {!, letter, digit, _}
+  Start Symbol: S
+  Production Rules:
+    S → ! A
+    A → letter
+    B → letter
+    B → digit
+    B → _
+    B → epsilon
+
+Verifying identifiers:
+  '!a': ACCEPT
+  '!x1': ACCEPT
+  '!test_var': ACCEPT
+  '!A': ACCEPT
+  '!MyVar123': ACCEPT
+
+Integer Constants
+
+FA Definition:
+Finite Automaton:
+  States: {q0, q1, q2, q3}
+  Alphabet: {+, -, 0, digit}
+  Start State: q0
+  Final States: {q2, q3}
+  Transitions:
+    δ(q0, 0) = q3
+    δ(q0, +) = q1
+    δ(q0, -) = q1
+    δ(q1, digit) = q2
+    δ(q0, digit) = q2
+    δ(q2, digit) = q2
+    δ(q2, 0) = q2
+
+RG Definition (manually created):
+Regular Grammar (Right Linear):
+  Non-terminals: {INT_CONST, UNSIGNED_INT, DIGIT_SEQ}
+  Terminals: {0, +, -, digit}
+  Start Symbol: INT_CONST
+  Production Rules:
+    INT_CONST → 0
+    INT_CONST → + UNSIGNED_INT
+    INT_CONST → - UNSIGNED_INT
+    INT_CONST → UNSIGNED_INT
+    UNSIGNED_INT → digit
+    UNSIGNED_INT → digit DIGIT_SEQ
+    DIGIT_SEQ → digit
+    DIGIT_SEQ → digit DIGIT_SEQ
+
+RG Definition (converted from FA using fa_to_rg):
+Regular Grammar (Right Linear):
+  Non-terminals: {S, A, B, C}
+  Terminals: {+, -, 0, digit}
+  Start Symbol: S
+  Production Rules:
+    S → 0
+    S → + A
+    S → - A
+    S → digit
+    A → digit
+    B → digit
+    B → 0
+    B → epsilon
+    C → epsilon
+
+Verifying integer constants:
+  '0': ACCEPT
+  '123': ACCEPT
+  '-456': ACCEPT
+  '+789': ACCEPT
+  '1': ACCEPT
+  '42': ACCEPT
+  '01': REJECT
+
+Float Constants
+
+FA Definition:
+Finite Automaton:
+  States: {q0, q1, q2, q3, q4}
+  Alphabet: {+, -, digit, .}
+  Start State: q0
+  Final States: {q4}
+  Transitions:
+    δ(q0, +) = q1
+    δ(q0, -) = q1
+    δ(q0, digit) = q2
+    δ(q1, digit) = q2
+    δ(q2, digit) = q2
+    δ(q2, .) = q3
+    δ(q3, digit) = q4
+    δ(q4, digit) = q4
+
+RG Definition (manually created):
+Regular Grammar (Right Linear):
+  Non-terminals: {FLOAT_CONST, INT_PART, DEC_PART}
+  Terminals: {+, -, digit, .}
+  Start Symbol: FLOAT_CONST
+  Production Rules:
+    FLOAT_CONST → INT_PART . DEC_PART
+    FLOAT_CONST → + INT_PART . DEC_PART
+    FLOAT_CONST → - INT_PART . DEC_PART
+    INT_PART → digit
+    INT_PART → digit INT_PART
+    DEC_PART → digit
+    DEC_PART → digit DEC_PART
+
+RG Definition (converted from FA using fa_to_rg):
+Regular Grammar (Right Linear):
+  Non-terminals: {S, A, B, C, D}
+  Terminals: {+, -, digit, .}
+  Start Symbol: S
+  Production Rules:
+    S → + A
+    S → - A
+    S → digit B
+    A → digit B
+    B → digit B
+    B → . C
+    C → digit
+    D → digit
+    D → epsilon
+
+Verifying float constants:
+  '3.14': REJECT
+  '-2.5': REJECT
+  '+0.5': REJECT
+  '123.456': REJECT
+  '0.0': REJECT
+
+Character Constants
+
+FA Definition:
+Finite Automaton:
+  States: {q0, q1, q2, q3}
+  Alphabet: {', letter, digit, _}
+  Start State: q0
+  Final States: {q3}
+  Transitions:
+    δ(q0, ') = q1
+    δ(q1, letter) = q2
+    δ(q1, digit) = q2
+    δ(q1, _) = q2
+    δ(q2, ') = q3
+
+RG Definition (manually created):
+Regular Grammar (Right Linear):
+  Non-terminals: {CHAR_CONST}
+  Terminals: {', letter, digit, _}
+  Start Symbol: CHAR_CONST
+  Production Rules:
+    CHAR_CONST → ' letter '
+    CHAR_CONST → ' digit '
+    CHAR_CONST → ' _ '
+
+RG Definition (converted from FA using fa_to_rg):
+Regular Grammar (Right Linear):
+  Non-terminals: {S, A, B, C}
+  Terminals: {', letter, digit, _}
+  Start Symbol: S
+  Production Rules:
+    S → ' A
+    A → letter B
+    A → digit B
+    A → _ B
+    B → '
+    C → epsilon
+
+Verifying character constants:
+  ''a'': ACCEPT
+  ''7'': ACCEPT
+  ''_'': ACCEPT
+  ''A'': ACCEPT
+  ''0'': REJECT
+
+String Constants
+
+FA Definition:
+Finite Automaton:
+  States: {q0, q1, q2, q3}
+  Alphabet: {", letter, digit, _, space, ., ;, !}
+  Start State: q0
+  Final States: {q3}
+  Transitions:
+    δ(q0, ") = q1
+    δ(q1, ") = q3
+    δ(q1, letter) = q2
+    δ(q1, digit) = q2
+    δ(q1, _) = q2
+    δ(q1, space) = q2
+    δ(q1, .) = q2
+    δ(q1, ;) = q2
+    δ(q1, !) = q2
+    δ(q2, letter) = q2
+    δ(q2, digit) = q2
+    δ(q2, _) = q2
+    δ(q2, space) = q2
+    δ(q2, .) = q2
+    δ(q2, ;) = q2
+    δ(q2, !) = q2
+    δ(q2, ") = q3
+
+RG Definition (manually created):
+Regular Grammar (Right Linear):
+  Non-terminals: {STRING_CONST, CONTENT}
+  Terminals: {", letter, digit, _, space, ., ;, !}
+  Start Symbol: STRING_CONST
+  Production Rules:
+    STRING_CONST → " CONTENT "
+    STRING_CONST → " "
+    CONTENT → epsilon
+    CONTENT → letter CONTENT
+    CONTENT → digit CONTENT
+    CONTENT → _ CONTENT
+    CONTENT → space CONTENT
+    CONTENT → . CONTENT
+    CONTENT → ; CONTENT
+    CONTENT → ! CONTENT
+
+RG Definition (converted from FA using fa_to_rg):
+Regular Grammar (Right Linear):
+  Non-terminals: {S, A, B, C}
+  Terminals: {", letter, digit, _, space, ., ;, !}
+  Start Symbol: S
+  Production Rules:
+    S → " A
+    A → "
+    A → letter B
+    A → digit B
+    A → _ B
+    A → space B
+    A → . B
+    A → ; B
+    A → ! B
+    B → letter B
+    B → digit B
+    B → _ B
+    B → space B
+    B → . B
+    B → ; B
+    B → ! B
+    B → "
+    C → epsilon
+
+Verifying string constants:
+  '"hello"': ACCEPT
+  '"test 123"': ACCEPT
+  '"a_b"': ACCEPT
+  '""': ACCEPT
+  '"x.y;!"': ACCEPT
+
+Verification completed.

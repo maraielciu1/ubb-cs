@@ -1,0 +1,5 @@
+4: "the second number is bigger"
+0: !first_number
+3: "the first number is bigger"
+1: 0
+2: !second_number

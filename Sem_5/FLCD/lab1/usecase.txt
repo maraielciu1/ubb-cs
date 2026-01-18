@@ -1,0 +1,59 @@
+Mini language statements use cases
+1. Declaration Statement
+ Introduces typed storage so later computations and I/O have a place to read/write correct-typed values.
+ <type> <identifier> = <expression> ;
+E.g: INT !count = 0; FLOAT !nr = 3.5; CHAR !sep = '_'; STRING !msg = "ready";
+2. Assignemnt Statement
+ Updates program state by changing variable values during execution.
+<identifier> = <expression> ; 
+E.g: !count = !count + 1; !nr = !nr / 2; !msg = "done";
+3. I/O Statement
+ READ ( <identifier> ) ; and WRITE ( <expression> ) ;
+E.g: READ(!count); WRITE(!count); WRITE("items processed");
+
+4. IF Statement
+Enables decision-making to execute different actions based on conditions.
+•	IF ( <condition> ) { <statement-list> }
+•	IF ( <condition> ) { <statement-list> } ELSE { <statement-list> }
+E.g.: 
+IF ( !count > 10 ) {
+  WRITE("bulk");
+} ELSE {
+  WRITE("small");
+}
+
+5. WHILE Statement
+ Repetition/iteration for processing sequences or retrying until a condition changes.
+WHILE ( <condition> ) { <statement-list> }
+E.g.:
+WHILE ( !count < 3 ) {
+  WRITE(!count);
+  !count = !count + 1;
+}
+
+6. Distribution Statement
+Declares that a specific data variable is assumed to follow a particular probability distribution (e.g., normal, binomial). This declaration is crucial input for advanced functions like confidence interval calculations or hypothesis testing.
+<identifier> ~ <distribution_type> ;
+<identifier> ~ <distribution_type> ( <argument_list> ) ;
+
+E.g.: !income ~ NORMAL ;
+!SuccessCount ~ BINOMIAL ( 100 , 0.2 ) ;
+
+7. Sampling Statement
+Creates a new, smaller data set (<identifier>) by randomly selecting a specified number of items from an existing dataset. This is fundamental for inferential statistics where analyzing a subset is necessary.
+<identifier> = SAMPLE ( <identifier> , <expression> ) ;
+
+E.g.: FLOAT !Subset = SAMPLE ( !PopulationData , 50 ) ;
+
+INT !size = 100 ;
+FLOAT !LargeSample = SAMPLE ( !TestScores , !size ) ;
+
+8. Statistical Function Call
+Purpose: Executes specialized mathematical functions to calculate key statistics (like mean, standard deviation) or perform formal hypothesis tests (like a T-test). The result can be used in assignment or as a standalone statement.
+<identifier> = <statistical_function_call> ;
+
+E.g. FLOAT !AvgScore = MEAN ( !Subset ) ;
+FLOAT !ScoreStDev = STDEV ( !TestScores ) ;
+
+<statistical_function_call> ;
+E.g. TTEST ( !Subset , !ControlGroup ) ;

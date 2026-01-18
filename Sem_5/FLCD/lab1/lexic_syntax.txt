@@ -1,0 +1,110 @@
+Lexic:
+Alphabet:
+- letter = a | b | ... | z | A | B | ... | Z
+- digit = 0 | 1 | ... | 9
+- underscore = _
+- space = " "
+- newline
+- !
+
+Lexic:
+- special tokens, representing: 
+    - operators:
+        - Arithmetic: + - * / %
+        - Assignment: =
+        - Relational: == != < > <= >=
+    - separators: ( ) [ ] { } ; , . space newline " '
+    - reserved words: START, STOP, IF, THEN, ELSE, WHILE, READ, WRITE, INT, FLOAT, STRING, CHAR, MEAN, STDEV, TTEST, SAMPLE, NORMAL, BINOMIAL, POISSON
+
+- identifiers:
+    - must start with "!" followed by a letter (A–Z or a–z)
+    - may continue with letters, digits, or underscores
+    - identifier = "!" letter { letter | digit | "_" }
+
+- constants:
+    - integer: 
+        - int_constant = [ "+" | "-" ] non_zero_digit { digit } | "0"
+        - nonzero_digit = "1" | "2" | ... | "9"
+    - float:
+        - float_constant = [ "+" | "-" ] digit { digit } "." digit { digit }
+    - character:
+        - character_constant = "'" letter "'" | "'" digit "'" | "'" underscore "'"
+    - string:
+        - string_constant = "\"" { letter | digit | underscore | space | punct } "\""
+        - punct = "." | ";" | "!"
+
+Syntax: 
+<program> ::= START <statement-list> STOP
+
+<statement-list> ::= <statement> | <statement> <statement-list>
+
+<statement> ::= <assignment_statement> | <if_statement> | <while_statement> | <io_statement> | <declaration_statement> | <statistical_statement>
+
+<assignment_statement> ::= <identifier> = <expression> ;
+
+<if_statement> ::= IF ( <condition> ) { <statement-list> } | IF ( <condition> ) { <statement-list> } ELSE { <statement-list> }
+
+<while_statement> ::= WHILE ( <condition> ) { <statement-list> }
+
+<io_statement> ::= WRITE ( <expression> ) ; | READ ( <identifier> ) ;
+
+<declaration_statement> ::= <type> <identifier> = <expression> ;
+
+<type> ::= INT | FLOAT | CHAR | STRING
+
+<identifier> ::= "!" <letter> | "!" <letter> <id-continuation>
+
+<id-continuation> ::= epsilon | <continuation-char> <id-continuation>  
+
+<continuation-char> ::= <letter> | <digit> | "_" 
+
+<expression> ::= <term> | <expression> <addition_operator> <term>
+
+<term> ::= <factor> | <term> <multiplication_operator> <factor>
+
+<factor> ::= <identifier> | <constant> | ( <expression> ) | <statistical_function_call> | <sign><factor>
+
+<constant> ::= <int_constant> | <float_constant> | <character_constant> | <string_constant>
+
+<int_constant> ::= <sign> <unsigned_int> | <unsigned_int>
+<float_constant> ::= <sign> <unsigned_int> "." <unsigned_int> | <unsigned_int> "." <unsigned_int>
+
+<character_constant> ::= "'" <letter> "'" | "'" <digit> "'" | "'" <underscore> "'"
+
+<string_constant> ::= "\"" <string_content> "\""
+<string_content> ::= epsilon | <string_char> <string_content>
+<string_char> ::= <letter> | <digit> | <underscore> | <space> | <punct>
+<space> ::= " "
+<punct> ::= . | ; | !
+
+
+<condition> ::= <expression> <relational_operator> <expression> | <condition> <logical_operator> <condition> | "(" <condition> ")"
+
+<unsigned_int> ::= <nonzero_digit> | <nonzero_digit> <digit_sequence>
+<digit_sequence> ::= <digit> | <digit> <digit_sequence>
+<sign> ::= "+" | "-"
+
+<letter> ::= a | b | ... | z | A | B | ... | Z
+<digit> ::= 0 | 1 | ... | 9
+<nonzero_digit> ::= 1 | ... | 9
+<underscore> ::= _
+
+<relational_operator> ::= == | != | < | > | <= | >=
+<addition_operator> ::= + | -
+<multiplication_operator> ::= * | / | %
+<logical_operator> ::= && | ||  
+
+
+<statistical_statement> ::= <distribution_statement> ; | <sampling_statement> ; | <statistical_function_call> ;
+
+<distribution_statement> ::= <identifier> "~" <distribution_type> ; | <identifier> "~" <distribution_type> ( <argument_list> ) ;
+
+<sampling_statement> ::= <identifier> = SAMPLE ( <distribution_type> , <expression> ) ; | <identifier> = SAMPLE ( <identifier> , <expression> ) ;
+
+<statistical_function_call> ::= <function_name> ( <argument_list> )
+
+<function_name> ::= MEAN | STDEV | TTEST
+
+<argument_list> ::= <expression> | <expression> , <argument_list>
+
+<distribution_type> ::= NORMAL | BINOMIAL | POISSON

@@ -1,0 +1,2 @@
+Lexical error at line 4, col 2 near '@': Unrecognized token
+Lexical error at line 10, col 13 near '$': Unrecognized token

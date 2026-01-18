@@ -1,0 +1,19 @@
+START
+  INT !count = 0;
+  STRING !label = "end";
+
+  READ(!count);
+
+  IF ( !count >= 10 ) {
+    WRITE("high");
+  } ELSE {
+    WRITE("low");
+  }
+
+  WHILE ( !count < 3 ) {
+    WRITE(!count);
+    !count = !count + 1;
+  }
+
+  WRITE(!label);
+STOP

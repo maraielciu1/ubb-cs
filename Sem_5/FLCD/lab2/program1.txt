@@ -1,0 +1,15 @@
+// the program reads 2 numbers and writes which one is bigger
+
+START
+  INT !first_number = 0;
+  INT !second_number = 0;
+
+  READ(!first_number);
+  READ(!second_number);
+
+  IF ( !first_number > !second_number ) {
+    WRITE("the first number is bigger");
+  } ELSE {
+    WRITE("the second number is bigger");
+  }
+STOP

@@ -1,0 +1,12 @@
+START
+    !x = 23 + 4.56 + "aa";
+    IF ( !x > 10 ) {
+        WRITE("large");
+    } ELSE {
+        WRITE("small");
+    }
+    WHILE ( !x < 100 ) {
+        !x = !x + 1;
+    }
+STOP
+
